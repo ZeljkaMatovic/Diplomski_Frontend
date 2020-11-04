@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # PUSGSWebProjekat
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
@@ -26,7 +25,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-=======
-# Projekat-Web2
-Student 1 - Željka Matović || Student 2 - Mihajlo Džever
->>>>>>> 4c8e2e686a2ffedc38d1d07adb2e48bff6fda661
