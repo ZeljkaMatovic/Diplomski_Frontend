@@ -1,0 +1,190 @@
+<div *ngIf="loggedin; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  
+  <header class="bodyProfile" style="background-color: aliceblue;">
+    <nav id="navItems" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" id="findDreamButton" routerLink="#">Find your dream journey</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+              <div *ngIf="tokenInfo.Roles=='ru'; then ruBlock"></div>
+              <div *ngIf="tokenInfo.Roles=='sys'; then saBlock"></div>
+              <div *ngIf="tokenInfo.Roles=='arsa'; then arsaBlock"></div>
+              <div *ngIf="tokenInfo.Roles=='rcsa'; then rcsaBlock"></div>
+              <ng-template #arsaBlock>
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" id="homeButton" routerLink="">Home
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Service
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" routerLink="/alloffers/{{arsAdmin.serviceId}}/airlineprofile">My airline <i id="toolImg1" class="fas fa-plane"></i></a>
+                      <!-- <a class="dropdown-item" href="#">Seats configuration <i id="toolImg1" class="fas fa-cog" style="margin-left: 5px;"></i></a> -->
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" routerLink="newflight">Create new flight</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="useraccount">My account <i id="toolImg" class="fas fa-user-circle"></i></a>
+                      <a class="dropdown-item" routerLink="allratings">Average ratings <i id="toolImg" class="fas fa-star-half-alt" style="margin-left: 3px;"></i></a>
+                      <a class="dropdown-item" routerLink="/salesgraph">Sales graph <i id="toolImg" class="fas fa-chart-area"></i></a>
+                      <a class="dropdown-item" routerLink="/revenuegraph">Airline revenue <i id="toolImg" class="fas fa-coins" style="margin-left: 5px;"></i></a>
+                      <a class="dropdown-item" (click)="logoffmock()" href="#">Log out <i id="toolImg" class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                  </li>
+                </ul>
+              </ng-template>
+              <ng-template #rcsaBlock>
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" id="homeButton" routerLink="">Home<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="service/{{rentacarAdmin.serviceId}}/adminview">
+                      Service
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="newbranch">
+                      New branch
+                    </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="useraccount">My account <i id="toolImg" class="fas fa-user-circle"></i></a>
+                      <a class="dropdown-item" routerLink="rentacar-rating">Average ratings <i id="toolImg" class="fas fa-star-half-alt" style="margin-left: 3px;"></i></a>
+                      <a class="dropdown-item" routerLink="graph">Sales graph<i id="toolImg" class="fas fa-chart-area"></i></a>
+                      <a class="dropdown-item" (click)="logoffmock()" href="#">Log out <i id="toolImg" class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                  </li>
+                </ul>
+              </ng-template>  
+              <ng-template #saBlock>
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" id="homeButton" routerLink="">Home<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/discounts">
+                      Discounts
+                    </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Create new Service
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" routerLink="newservice/airline">Airline</a>
+                      <a class="dropdown-item" routerLink="newservice/rentacar">Rentacar</a>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Create new Admin
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" routerLink="newadmin/airline">Airline</a>
+                      <a class="dropdown-item" routerLink="newadmin/rentacar">Rent-a-Car</a>
+                      <a class="dropdown-item" routerLink="newadmin/system">System</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" (click)="logoffmock()" href="#">Log out</a>
+                  </li>
+                </ul>
+              </ng-template>
+              <ng-template #ruBlock>
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" id="homeButton" routerLink="">Home
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Services
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" routerLink="/flightsearch">Search flights 
+                        <i id="toolImg1" class="fas fa-search" style="margin-left: 5px;"></i></a>
+                      <a class="dropdown-item" routerLink="/airlines">Airlines <i id="toolImg1" class="fas fa-plane"></i></a>
+                      <a class="dropdown-item" routerLink="/rentacars">Rentacar <i id="toolImg1" class="fas fa-car"></i></a>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Friends
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" routerLink="allfriends">My friends <i id="toolImg" class="fas fa-user-friends"></i></a>
+                      <a class="dropdown-item" routerLink="newfriend">Friend requests <i id="toolImg" class="fas fa-user-plus"></i></a>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="useraccount">My account <i id="toolImg" class="fas fa-user-circle"></i></a>
+                      <a class="dropdown-item" href="reservationlist">Flight list <i id="toolImg" class="fas fa-list-ul" style="margin-left: 5px;"></i></a>
+                      <a class="dropdown-item" href="car-list">Car list <i id="toolImg" class="fas fa-list-ul" style="margin-left: 5px;"></i></a>
+                      <a class="dropdown-item" (click)="logoffmock()" href="#">Log out <i id="toolImg" class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                  </li>
+                </ul>
+              </ng-template>            
+          </div>
+        </div>
+      </nav>
+    </header>    
+</ng-template>
+<ng-template #elseBlock>
+  <nav id="navItems" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" id="findDreamButton" routerLink="#">Find your dream journey</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" id="homeButton" routerLink="home">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="alloffers">Offers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="promotions">Promotions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginUser">Log in</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <app-login></app-login>
+</ng-template>
+
+
+
+
+
+

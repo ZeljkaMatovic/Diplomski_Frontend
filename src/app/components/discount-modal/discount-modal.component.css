@@ -1,0 +1,25 @@
+
+input{
+    width: 300px;
+}
+
+#title {
+    color: black;
+}
+
+label {
+    color: black;
+    font-size: 24;
+}
+
+.error {
+    border-color: red;
+}
+
+.allGood {
+    border-color: green;
+}
+
+button {
+    background-color: rgb(9, 94, 16)
+}

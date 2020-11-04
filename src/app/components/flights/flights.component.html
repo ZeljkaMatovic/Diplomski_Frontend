@@ -1,0 +1,101 @@
+
+<div class="flightHeader">
+    <div class="booking-form">
+        <form >
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group input-not-empty">
+                        <span class="form-label">Flight type</span>
+                        <select id="flight-type" (click)="checkInput()" class="form-control">
+                            <option value="roundtrip">Roundtrip</option>
+                            <option value="one-way">One-way</option>
+                            <option value="multiCity">MultiCity</option>
+                        </select>
+                        <span style="color: white;" class="select-arrow"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group input-not-empty">
+                        <span class="form-label">Flight class</span>
+                        <select id="flight-class" class="form-control">
+                            <option value="Economy">Economy</option>
+                            <option value="Business">Business</option>
+                        </select>
+                        <span style="color: white;" class="select-arrow"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input id="destFromTxt" class="form-control" type="text" list="destFrom">
+                        <span class="form-label">From</span>
+                        
+                        <datalist id="destFrom">
+                            <option *ngFor="let destination of destinationsFound" value="{{destination.destinationName}}">
+                                {{destination.destinationName}}
+                            </option>
+                        </datalist>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input id="destToTxt" class="form-control" type="text" list="destTo">
+                        <span class="form-label">To</span>
+
+                        <datalist id="destTo">
+                            <option *ngFor="let destination of destinationsFound" value="{{destination.destinationName}}">
+                                {{destination.destinationName}}
+                            </option>
+                        </datalist>
+                    </div>
+                </div>
+            </div>
+            <div id="mcRow" class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input id="destFromTxt2" class="form-control" type="text" list="destFrom2">
+                        <span class="form-label">From</span>
+                        
+                        <datalist id="destFrom2">
+                            <option *ngFor="let destination of destinationsFound" value="{{destination.destinationName}}">
+                                {{destination.destinationName}}
+                            </option>
+                        </datalist>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input id="destToTxt2" class="form-control" type="text" list="destTo2">
+                        <span class="form-label">To</span>
+
+                        <datalist id="destTo2">
+                            <option *ngFor="let destination of destinationsFound" value="{{destination.destinationName}}">
+                                {{destination.destinationName}}
+                            </option>
+                        </datalist>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input id="departureTxt" class="form-control" type="date" required="">
+                        <span class="form-label">Departure</span>
+                    </div>
+                </div>
+                <div id="return" class="col-md-6">
+                    <div class="form-group">
+                        <input id="returnTxt" class="form-control" type="date" required="">
+                        <span class="form-label">Return</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-btn">
+                <button class="submit-btn" (click)="findFlights()" routerLink="/flightsdisplay">Book Now</button>
+                <!-- <button class="submit-btn" (click)="findFlights()" routerLink="/flightsdisplay">Book Now</button> -->
+            </div>
+        </form>
+    </div>
+</div>

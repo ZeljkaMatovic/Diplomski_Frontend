@@ -1,0 +1,26 @@
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Car</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Date</th>
+            <th scope="col">Price per day</th>
+            <th scope="col">Total price</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let car of user.reservedCars">
+        <tr>
+            <td><i style="color: white; margin-left: 10px;" class="fas fa-arrow-right"></i></td>
+            <td>{{car.vehicle.markOfVehicle}} {{car.vehicle.modelOfVehicle}}</td>
+            <td>{{car.vehicle.averageRatingOfVehicle}}</td>
+            <td>{{car.startDate}} - {{car.endDate}}</td>
+            <td>{{car.pricePerDay}}</td>
+            <td>{{car.totalPrice}}</td>
+            <td [hidden]="cantBeSeen(car)"><button  class="btn btn-danger" (click)="cancel(car)">Cancel</button></td>
+            <td [hidden]="!canRate(car)"><button [disabled]="car.rated" class="btn btn-primary" data-toggle="modal" data-target="#rateRentacar" class="btn btn-primary" (click)="rateCar(car)">Rate</button></td>
+        </tr>
+    </tbody>
+</table>
+<app-rate-rentacar (values)="admitRating($event)"></app-rate-rentacar>

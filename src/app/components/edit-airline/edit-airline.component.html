@@ -1,0 +1,61 @@
+<div class="modal fade" id="modifyAirline" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    Modify airline information
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <form [formGroup]="airlineForm">
+                        <div class="form-group row">
+                            <label   class="col-sm-4 col-form-label" for="code">Company name</label >
+                            <!--<input [class.error]="!discountForm.controls.groupName.valid" [class.allGood]="discountForm.controls.groupName.valid" type="text" formControlName="groupName"/>-->
+                            <div class="col-sm-8">
+                                <input type="text" formControlName="name" [class.error]="!airlineForm.controls.name.valid" [class.allGood]="airlineForm.controls.name.valid"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="code">Description</label>                  
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <!--<input class="blockPrikaz" type="text" formControlName="descr"/>-->
+                                <textarea class="blockPrikaz" formControlName="descr" [class.error]="!airlineForm.controls.descr.valid" [class.allGood]="airlineForm.controls.descr.valid"></textarea> 
+                            </div>     
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label style="text-align: center; font: bolder;" class="col-sm-12 col-form-label" for="code">Location of HQ</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="code" >City</label>
+                            <div class="col-sm-8">
+                                <input type="text" formControlName="city" [class.error]="!airlineForm.controls.city.valid" [class.allGood]="airlineForm.controls.city.valid"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="code">Address</label>
+                            <div class="col-sm-8">
+                                <input type="text" formControlName="address" [class.error]="!airlineForm.controls.address.valid" [class.allGood]="airlineForm.controls.address.valid"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="code">Number</label>
+                            <div class="col-sm-8">
+                                <input type="text" formControlName="number" [class.error]="!airlineForm.controls.number.valid" [class.allGood]="airlineForm.controls.number.valid" />
+                            </div>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" [disabled]="!airlineForm.valid" class="btn btn-secondary" data-dismiss="modal" (click)="modify()">Modify</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

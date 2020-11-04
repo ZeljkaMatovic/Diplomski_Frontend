@@ -1,0 +1,32 @@
+div.search{
+
+    padding-left: 35%;
+    display: inline-block;
+}
+
+div.search span.inputel {
+    padding-left: 10px;
+}
+
+div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+  div.scrollmenu .part {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  div.scrollmenu .part:hover {
+    background-color: #777;
+  }
+
+center {
+    display: block;
+    padding-top: 10%;
+}

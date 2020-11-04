@@ -1,0 +1,86 @@
+<div class="modal fade" id="modify" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="title">
+                    {{titleString}}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <form [formGroup]="vehicleForm" class="form">
+                        <div [hidden]="hideBranchSelector" class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Branch: </label>
+                            <div class="col-sm-8">
+                                <select formControlName="branch">
+                                    <option *ngFor="let branch of branchList" [ngValue]="branch">
+                                        {{branch.nameOfBranch}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Name: </label>
+                            <div class="col-sm-8">
+                                <input formControlName="name" [class.error]="!vehicleForm.controls.name.valid" [class.allGood]="vehicleForm.controls.name.valid" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Mark: </label>
+                            <div class="col-sm-8">
+                                <input formControlName="mark" [class.error]="!vehicleForm.controls.mark.valid" [class.allGood]="vehicleForm.controls.mark.valid" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Model: </label>
+                            <div class="col-sm-8">
+                                <input formControlName="model" [class.error]="!vehicleForm.controls.model.valid" [class.allGood]="vehicleForm.controls.model.valid" type="text"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">No of seats: </label>
+                            <div class="col-sm-8">
+                                <input formControlName="nos" [class.error]="!vehicleForm.controls.nos.valid" [class.allGood]="vehicleForm.controls.nos.valid" type="number"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Year: </label>
+                            <div class="col-sm-8">
+                                <input formControlName="year" [class.error]="!vehicleForm.controls.year.valid" [class.allGood]="vehicleForm.controls.year.valid" type="number" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Type of vehicle: </label>
+                            <div class="col-sm-8">
+                                <select formControlName="tov">
+                                    <option *ngFor="let type of tovList" [value]="type">
+                                        {{type}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Can be rented</label>
+                            <div class="col-sm-8">
+                                <input type="checkbox" formControlName="canberented"/>
+                            </div>
+                        </div>     
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Price per day: </label>
+                            <div class="col-sm-8">
+                                <input formControlName="ppd" [class.error]="!vehicleForm.controls.ppd.valid" [class.allGood]="vehicleForm.controls.ppd.valid" type="number"/>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" [disabled]="!vehicleForm.valid" class="btn btn-secondary" data-dismiss="modal" (click)="modify()">{{titleString}}</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

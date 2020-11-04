@@ -1,0 +1,58 @@
+<div *ngIf="isMultiSelect; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <form class="form-inline">
+      <div class="form-group hidden">
+        <div class="input-group">
+          <input name="datepicker"
+          style="width: 150px;"class="form-control"
+                 ngbDatepicker
+                 #datepicker="ngbDatepicker"
+                 [minDate]="minDate"
+                 [autoClose]="'outside'"
+                 (dateSelect)="onDateSelection($event)"
+                 [displayMonths]="1"
+                 [dayTemplate]="t"
+                 outsideDays="hidden"
+                 [startDate]="fromDate!"
+                 >
+          <ng-template #t let-date let-focused="focused">
+            <span class="custom-day"
+                  [class.focused]="focused"
+                  [class.range]="isRange(date)"
+                  [class.faded]="isHovered(date) || isInside(date)"
+                  (mouseenter)="hoveredDate = date"
+                  (mouseleave)="hoveredDate = null">
+              {{ date.day }}
+            </span>
+          </ng-template>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <input #dpFromDate
+                 class="form-control" placeholder="yyyy-mm-dd"
+                 name="dpFromDate"
+                 [value]="formatter.format(fromDate)"
+                 (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+          <div class="input-group-append">
+            <button style="height: 38px; width: 45px; background-color: white;" class="btn btn-outline-secondary" (click)="datepicker.toggle()" type="button">
+              <img style="background-size: 100% 100%;" src="../assets/calendarIcon.png"/></button>
+          </div>
+        </div>
+      </div> 
+    </form>
+  </ng-template>
+  <ng-template #elseBlock>
+    <form class="form-inline">
+      <div class="form-group">
+        <div class="input-group">
+          <input [disabled]="!isChangeable" style="width: 150px;" class="form-control" placeholder="yyyy-mm-dd" (dateSelect)="onSelection($event)"
+          [minDate]="minDate" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button style="height: 38px; width: 45px; background-color: rgb(191, 230, 241);" class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><img src="../assets/calendarIcon.png"/></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </ng-template>
+

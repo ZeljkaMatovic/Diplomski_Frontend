@@ -1,0 +1,51 @@
+<div class="modal fade" id="modifyBranch" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color:black;">
+                    Modify Branch information
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <form [formGroup]="branchForm">
+                        <div class="form-group row">
+                            <label   class="col-sm-4 col-form-label" for="code">Service name</label >
+                            <!--<input [class.error]="!discountForm.controls.groupName.valid" [class.allGood]="discountForm.controls.groupName.valid" type="text" formControlName="groupName"/>-->
+                            <div class="col-sm-8">
+                                <input type="text" formControlName="name" [class.error]="!branchForm.controls.name.valid" [class.allGood]="branchForm.controls.name.valid"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label style="text-align: center; font: bolder;" class="col-sm-12 col-form-label" for="code">Location of HQ</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="code" >City</label>
+                            <div class="col-sm-8">
+                                <input type="text" formControlName="city" [class.error]="!branchForm.controls.city.valid" [class.allGood]="branchForm.controls.city.valid"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="code">Address</label>
+                            <div class="col-sm-8">
+                                <input type="text" formControlName="address" [class.error]="!branchForm.controls.address.valid" [class.allGood]="branchForm.controls.address.valid"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label" for="code">Number</label>
+                            <div class="col-sm-8">
+                                <input type="text" formControlName="number" [class.error]="!branchForm.controls.number.valid" [class.allGood]="branchForm.controls.number.valid" />
+                            </div>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" [disabled]="!branchForm.valid" class="btn btn-secondary" data-dismiss="modal" (click)="modify()">Modify</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

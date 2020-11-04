@@ -1,0 +1,46 @@
+
+<div *ngIf="userType=='rcsa'; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    
+</ng-template>
+<ng-template #elseBlock>
+    <app-car-search></app-car-search>
+</ng-template>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <th scope="col">Name</th>
+        <th scope="col">Car</th>
+        <th scope="col">Year made</th>
+        <th scope="col">No of seats</th>
+        <th scope="col">Type</th>
+        <th scope="col">Average rating</th>
+        <th scope="col">Price/day</th>
+        <th *ngIf="userType=='rcsa'">Can be rented</th>
+        <th *ngIf="userType=='rcsa'" scope="col" colspan="3"></th>
+        <th *ngIf="userType=='ru'" scope="col" colspan="1"></th>
+    </thead>
+    <tbody>
+        <ng-template ngFor let-vehicle  [ngForOf]="shownVehicles">
+            <tr *ngIf="vehicle.canBeRented || userType=='rcsa'">
+                <td>{{vehicle.name}}</td>
+                <td>{{vehicle.markOfVehicle}} {{vehicle.modelOfVehicle}}</td>
+                <td>{{vehicle.yearMade}}.</td>
+                <td>{{vehicle.numberOfSeats}}</td>
+                <td>{{vehicle.typeOfVehicle}}</td>
+                <td>{{vehicle.averageRatingOfVehicle}}</td>
+                <td>{{vehicle.pricePerDay}}€</td>
+                <td *ngIf="userType=='rcsa'" [hidden]="!vehicle.canBeRented">Yes</td>
+                <td *ngIf="userType=='rcsa'" [hidden]="vehicle.canBeRented">No</td>
+                <td *ngIf="userType=='rcsa'"><button [disabled]="vehicle.isRented" (mouseenter)="modify(vehicle.id)" data-toggle="modal" data-target="#modify"  class="btn btn-primary">Modify</button></td>
+                <td *ngIf="userType=='rcsa'"><button (mouseenter)="special(vehicle)"  data-target="#special" data-toggle="modal" class="btn btn-success">Add special offer</button></td>
+                <td *ngIf="userType=='rcsa'"><button [disabled]="vehicle.isRented" (click)="delete(vehicle.id)" class="btn btn-danger">Delete</button></td>
+                <td *ngIf="userType=='ru'"><button class="btn btn-success" data-target="#reserve" data-toggle="modal" (click)="reserve(vehicle)">Reserve</button></td>
+            </tr>
+        </ng-template>
+    </tbody>                
+</table>
+<app-car-special-offer [vehicle]="toSpecial"></app-car-special-offer>
+<app-reserve-car [carSea]="carSearch" [car]="toReserve"></app-reserve-car>
+<!--<button *ngIf="userType=='rcsa'" (mouseenter)="createNew()" data-toggle="modal" data-target="#modify"  class="btn btn-primary">Create new</button>-->
+<!--<app-modify-car [vehicle]="toModify" (newVehicle)="decision($event)"></app-modify-car>-->
+

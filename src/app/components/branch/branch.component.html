@@ -1,0 +1,10 @@
+<header class="rentacarHeader" style="background-image: url('../assets/colorfulBlur.jpg')">
+    <div style="padding-top: 1%;" id="branchInfo">
+        <span>Name of branch: {{branch.nameOfBranch}}</span><br/>
+        <span>Name of company: {{rentacar.nameOfService}}</span><br/>
+        <span>Location of branch: {{branch.location.nameOfCity}}, {{branch.location.nameOfStreet}} {{branch.location.numberInStreet}}</span>
+    </div>
+    <app-vehicles (modifyId)="modify($event)" [userType]="userType" [vehicles]="branch.listOfVehicles" [serviceId]="branch.rentacarID" ></app-vehicles>
+    <button *ngIf="userType=='rcsa'" (mouseenter)="createNew()" data-toggle="modal" data-target="#modify"  class="btn btn-primary">Create new</button>
+    <app-modify-car [vehicle]="toModify" (newVehicle)="decision($event)"></app-modify-car>
+</header>

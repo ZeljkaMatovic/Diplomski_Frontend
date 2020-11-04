@@ -1,0 +1,91 @@
+<header class="ticketsHeader">
+    <div style="margin-top: -700px; margin-left: -100px;" [hidden]="!loggedIn || user.role!='arsa'" >
+        <i class="fas fa-arrow-right"></i>
+        <button class="btn newTicketBtn" data-toggle="modal"
+        data-target="#NewSuperTicket"><u>Add new super ticket</u></button>
+    </div>
+    <div class="wrapper" style="margin-left: -100px;">
+        <div class="card" *ngFor="let ticket of ticketsList">
+            <img src="../assets/{{ticket.destinationFrom}}.jpg">
+            <img src="../assets/{{ticket.destinationTo}}.jpg" style="margin-top: 80%;">
+            <div class="info">
+                <h1>{{ticket.destinationFrom}} - {{ticket.destinationTo}}</h1>
+                <p>Date: {{ticket.dateAndTime | date: "dd. MMM y"}} <br />
+                    Time: {{ticket.dateAndTime | date: "HH:mm"}} <br />
+                    Seat: {{ticket.seat}} <br/>
+                    Price: {{ticket.totalPrice}}$ <br />
+                    Sale: {{ticket.sale}}%
+                </p>
+                <div *ngIf="loggedIn && user.role!='arsa'; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+                    <button class="btn" routerLink="/{{ticket.id}}/reserveticket">Reserve</button>
+                </ng-template>
+                <ng-template #elseBlock>
+                    <button class="btn" data-toggle="modal" [hidden]="user.role=='arsa'"
+                    data-target="#alertLogin">Reserve</button>
+                    <button class="btn" [hidden]="user.role!='arsa'" routerLink="/ticketpreview/{{ticket.id}}">Info</button>
+                </ng-template>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div *ngIf="loggedIn; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+    </ng-template>
+    <ng-template #elseBlock>
+        <app-login-alert></app-login-alert>
+    </ng-template>
+</header>
+
+<div class="modal fade" id="NewSuperTicket" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>New super ticket</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <form class="form" [formGroup]="superTicketForm">
+                        <div class="form-group row">
+                            <tbody>
+                                <tr>
+                                    <td><label>Flight:</label></td>
+                                    <td><input type="text" list="flightList" formControlName="flights" id="flights"
+                                        [class.allGood]="superTicketForm.controls.flights.valid"
+                                        [class.error]="superTicketForm.controls.flights.invalid" (change)="getFlightId($event)"></td>
+                                    <datalist id="flightList">
+                                        <option *ngFor="let flight of airline.listOfFlights" 
+                                        value="{{flight.id}}">
+                                        {{flight.destinationFrom}} - {{flight.destinationTo}}
+                                        </option>
+                                    </datalist>
+                                </tr>
+                                <tr>
+                                    <td><label>Sale:</label></td>
+                                    <td><input type="number" formControlName="sale" id="sale"
+                                        [class.allGood]="superTicketForm.controls.sale.valid"
+                                        [class.error]="superTicketForm.controls.sale.invalid"></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="seat-label" style="margin-bottom: 20px !important;">Seat:</label></td>
+                                    <td><input #seatPass type="text" id="seat" id="seat" [value]="seat"><br>
+                                        <button class="choose-btn" (click)="openSeats()">Choose</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><button class="btn btn-submit add-btn" type="submit" [disabled]="!superTicketForm.valid"
+                                        (click)="addNewSuperTicket()">Add</button></td>
+                                </tr>
+                            </tbody>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

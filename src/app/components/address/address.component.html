@@ -1,0 +1,18 @@
+<header style="margin-left: 20px; margin-top: 10px;">
+    <div *ngIf="user.role == 'arsadmin' then adminBlock"></div>
+    <p><i id="toolImg" class="fas fa-map-marker-alt" style="margin-right: 10px;"></i>Address of company:
+        <ng-template #adminBlock>
+            <!-- <a style="margin-left: 800px; margin-top: 10px;" data-toggle="modal" data-target="#modifyAddress">Modify</a> -->
+        </ng-template>
+    </p>
+    <p style="margin-left: 30px">
+        <i id="toolImg" class="fas fa-city" style="margin-right: 10px;"></i>City: {{locationFound.nameOfCity}}</p>
+    <p style="margin-left: 35px">
+        <i id="toolImg" class="fas fa-map-pin" style="margin-right: 10px;"></i>Street: {{locationFound.nameOfStreet}}
+        {{locationFound.numberInStreet}}</p>
+    <div class="map">
+        <agm-map [latitude]="locationFound.geoWidth" [longitude]="locationFound.geoHeight">
+            <agm-marker [latitude]="locationFound.geoWidth" [longitude]="locationFound.geoHeight"></agm-marker>
+        </agm-map>
+    </div>
+</header>

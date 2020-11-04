@@ -1,0 +1,29 @@
+input{
+    width: 300px;
+}
+
+.bodyLogin {
+    height: 100vh !important;
+	min-height:100vh;
+	background: url('/assets/india.jpeg') no-repeat center center;
+    background-size: cover;
+    background-position:center;
+}
+
+.table-login {
+    width: 500px !important;
+    height: 500px !important;
+    background-color: rgb(38, 148, 182);
+}
+.error {
+    border-color: red;
+}
+
+.allGood {
+    border-color: green;
+}
+
+button {
+    background-color: rgb(9, 94, 16)
+}
+

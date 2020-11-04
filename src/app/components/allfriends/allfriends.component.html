@@ -1,0 +1,75 @@
+<form class="form-inline d-flex justify-content-center md-form form-sm active-pink-2 mt-2">
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search your friends"
+        aria-label="Search">
+</form>
+
+<div class="friendslist">
+    <ul>
+        <li *ngFor="let friend of friendsList" id="{{friend.userName}}">
+            <span class="number"><img [src]="friend.src"></span>
+            <span class="name">
+                <h4>{{friend.userName}}</h4>
+                <p>{{friend.name}} {{friend.lastname}}</p>
+            </span>
+            <span>
+                <i class="fas fa-address-card" data-toggle="modal" data-placement="top" 
+                data-target="#userInfo" title="See info" (click)="seeUserInfo($event, friend)"></i>
+            </span>
+            <span><i class="fas fa-comment-dots" data-placement="top" title="Send message"
+                routerLink="/chat/{{friend.userName}}"></i></span>
+            <span><i id="{{friend.userName}}" class="fas fa-user-times" aria-hidden="true" data-toggle="tooltip" data-placement="top"
+                (click)="deleteFriend($event, friend)" title="Delete friend"></i></span>
+        </li>
+    </ul>
+</div>
+
+<div class="modal fade" id="userInfo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>User info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <form class="form">
+                        <div class="form-group row">
+                            <tbody>
+                                <tr>
+                                    <td><label>Username:</label></td>
+                                    <td><input class="form-control" type="text" value="{{currentUser.userName}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Name:</label></td>
+                                    <td><input class="form-control" type="text" value="{{currentUser.name}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Lastname:</label></td>
+                                    <td><input class="form-control" type="text" value="{{currentUser.lastname}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Email:</label></td>
+                                    <td><input class="form-control" type="text" value="{{currentUser.email}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Phone:</label></td>
+                                    <td><input class="form-control" type="text" value="{{currentUser.phoneNumber}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td><label>City:</label></td>
+                                    <td><input class="form-control" type="text" value="{{currentUser.city}}" readonly></td>
+                                </tr>
+                            </tbody>
+                        </div>
+                        <div class="imgDiv">
+                            <img [src]="currentUser.src" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="well" style="padding-top: 1%;">
+    <form [formGroup]="serviceForm" (ngSumbit)="createNewService()">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th *ngIf="path=='airline'" colspan="2">Create new Airline Service</th>
+                    <th *ngIf="path=='rentacar'" colspan="2">Create new Rent-a-Car Service</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Service Name:</td>
+                    <td><input type="text" formControlName="serviceName" [class.allGood]="serviceForm.controls.serviceName.valid" [class.error]="serviceForm.controls.serviceName.invalid"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="success" style="align-content: center;">Location of HQ</td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" formControlName="city" [class.allGood]="serviceForm.controls.city.valid" [class.error]="serviceForm.controls.city.invalid"/></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input type="text" formControlName="address" [class.allGood]="serviceForm.controls.address.valid" [class.error]="serviceForm.controls.address.invalid"/></td>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td><input type="text" formControlName="number" [class.allGood]="serviceForm.controls.number.valid" [class.error]="serviceForm.controls.number.invalid"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button [disabled]="!serviceForm.valid" (click)="createNewService()" class="btn btn-success" type="submit" >Create</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

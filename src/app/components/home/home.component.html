@@ -1,0 +1,59 @@
+<header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('../assets/india.jpeg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class="display-4">India</h2>
+            <!-- <p class="lead">This is a description for the first slide.</p> -->
+          </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('../assets/london.jpeg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class="display-4">London</h2>
+            <!-- <p class="lead">This is a description for the second slide.</p> -->
+          </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('../assets/maldives.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class="display-4">Maldives</h2>
+            <!-- <p class="lead">This is a description for the third slide.</p> -->
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('../assets/singapore.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="display-4">Singapore</h2>
+              <!-- <p class="lead">This is a description for the fourth slide.</p> -->
+            </div>
+          </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+    </div>
+  </header>
+  <!-- <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="airlines-tab" data-toggle="tab" href="#airlines" role="tab" aria-controls="airlines" aria-selected="true">Airlines</a>
+      <a class="nav-item nav-link" id="car-tab" data-toggle="tab" href="#rentacar" role="tab" aria-controls="rentacar" aria-selected="false">Rent-A-Car</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="airlines" role="tabpanel" aria-labelledby="airlines-tab"><app-airlinesdisplay></app-airlinesdisplay></div>
+    <div class="tab-pane fade" id="rentacar" role="tabpanel" aria-labelledby="car-tab"><app-carsdisplay></app-carsdisplay></div>
+  </div> -->
+ 
+  <router-outlet></router-outlet>

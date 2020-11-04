@@ -1,0 +1,27 @@
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">NAME OF AIRLINE</th>
+            <th scope="col">ADDRESS</th>
+            <th scope="col">DESCRIPTION</th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let airline of allAirlines">
+            <td>{{airline.nameOfAirline}}</td>
+            <td>{{airline.location.nameOfCity}} <br />
+                {{airline.location.nameOfStreet}} {{airline.location.numberInStreet}} <br />
+                {{airline.location.geoWidth}}, {{airline.location.geoHeight}}</td>
+            <td style="max-width: 700px;">{{airline.descriptionOfAirline}}</td>
+            <!--buttons-->
+            <td>
+                <!-- Prenos id-ja kao parametra putanje komponenti -->
+                <button class="btn btn-success" routerLink="/alloffers/{{airline.id}}/airlineprofile">
+                    Details
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

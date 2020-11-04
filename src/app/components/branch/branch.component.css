@@ -1,0 +1,20 @@
+img {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+
+.rentacarHeader {
+	height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+span {
+    font-size: large;
+    color: white;
+}

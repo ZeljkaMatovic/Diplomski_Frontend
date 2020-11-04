@@ -1,0 +1,48 @@
+<br/>
+<br/>
+<br/>
+
+<div class="search">
+    <label class="element">Search Service by name:</label>
+    <span class="inputel">
+        <input class="element" type="text" [(ngModel)]="name"/> 
+    </span>
+    <span class="inputel">
+        <button style="margin-bottom: 5px;" (click)="search()" class="btn btn-success element">Search</button>  
+    </span>
+    
+</div>
+       
+
+
+<div class="center">
+    <div class="scrollmenu">
+        <app-service-cards class="part" *ngFor="let ser of services" [service]="ser"></app-service-cards>
+    </div>
+</div>
+
+
+<!--<div class="well">
+    <table class="table">
+        <thead>
+            <td>Service name</td>
+            <td>Service type</td>
+            <td>Number of discount groups</td>
+            <td></td>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rent of rentServices">
+                <td>{{rent.nameOfService}}</td>
+                <td>Rent-a-car</td>
+                <td>{{rent.discountGroups.length}}</td>
+                <td><button class="btn btn-primary" routerLink="rentacar/{{rent.id}}">Edit</button></td>
+            </tr>
+            <tr *ngFor="let air of airServices">
+                <td>{{air.nameOfAirline}}</td>
+                <td>Airline</td>
+                <td>{{air.discountGroups.length}}</td>
+                <td><button class="btn btn-primary" routerLink="airline/{{air.id}}">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>-->

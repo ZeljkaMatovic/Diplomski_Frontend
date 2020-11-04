@@ -1,0 +1,188 @@
+.ticketsHeader {
+    height: 100vh;
+    min-height: 350px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* overflow-y: hidden !important; */
+    /* overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    background-repeat: no-repeat !important; */
+    
+    /* overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap; */
+
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: auto;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    width: 80%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    /*justify-content: space-around;*/
+}
+
+.card {
+    width: 300px;
+    height: 480px;
+    padding: 2rem 1rem;
+    background: #fff;
+    flex: 0 0 auto;
+    /*position: relative;*/
+    /*display: flex;*/
+    /*align-items: flex-end;*/
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(20px);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba (0,176,155,0.5), rgba(150,201,61,1));
+    z-index: 2;
+    transition: 0.5s all;
+    opacity: 0;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card .info {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s all;
+}
+
+.card:hover .info {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.card .info h1 {
+    margin: 0;
+}
+
+.card .info p {
+    letter-spacing: 1px;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+.card .info .btn {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: #fff;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+
+.card .info .btn:hover {
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+.newTicketBtn {
+    color: white;
+}
+
+i {
+    color: white;
+}
+
+
+
+.modal-dialog {
+    margin-left: 410px;
+    margin-top: 100px;
+}
+
+.modal-header {
+    background-color: white;
+    height: 50px;
+}
+
+h5 {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.modal-body {
+    background-color: rgb(0, 0, 0, 0.7);
+    color: white;
+}
+
+.modal-body label{
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.seat-label {
+    margin-left: 30px;
+    margin-top: -30px !important;
+}
+
+.modal-body input {
+    margin-left: -100px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    height: 30px;
+    width: 200px;
+}
+
+.add-btn {
+    background-color: rgb(130, 194, 34);
+    margin-top: 20px;
+    margin-left: 160px;
+}
+
+.modal-content {
+    width: 400px; 
+    height: 400px;
+}
+
+.choose-btn {
+    background-color: transparent;
+    margin-left: -100px;
+    color: wheat;
+}
+
+.choose-btn:hover {
+    color: rgb(113, 153, 238);
+}

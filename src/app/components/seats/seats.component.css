@@ -1,0 +1,367 @@
+.seat-map
+{
+	position: relative;
+	background: transparent;
+	/* margin:0px auto; */
+	font-size: 12px;
+	text-align:left;
+	float: right;
+	color: white;
+}
+
+#plane-image {
+	margin-top: 70px;
+	background-color: transparent;
+}
+
+.seat-cockpit
+{
+	margin-left:30px;
+	background: white;
+	margin-top: 50px;
+	background-color: transparent;
+	color: white;
+}
+
+.seat-cockpit img
+{
+	vertical-align:bottom;
+}
+
+.seat-tail
+{
+	margin-left:30px;
+	background: white;
+	margin-bottom:15px;
+	background-color: transparent;
+	color: white;
+}
+
+.form-control {
+	width: 150px;
+}
+
+.seatOptions {
+	float: left;
+	margin-left: 200px;
+	margin-top: 305px;
+	width: 340px;
+	height: 150px;
+}
+
+.seat-upper-deck-border-top
+{
+	margin-left:30px;
+	margin-right:32px;
+	border-bottom: 1px solid black;	
+	background: white;
+	height: 1px;
+}
+
+.seat-upper-deck-border-bottom
+{
+	margin-left:30px;
+	margin-right:32px;
+	border-top: 1px solid black;	
+	background: white;
+	height: 5px;
+}
+
+.seat-level-title
+{
+	text-align: center;
+	font-weight: bold;
+	padding-top: 5px;
+	margin-left: 30px;
+	margin-right: 32px;
+	border-left: 1px solid black;	
+	border-right: 1px solid black;	
+	clear: both;
+}
+
+.seat-class-title
+{
+	text-align: center;
+	padding-top: 5px;
+	height: 20px;
+	float: left;
+	background-color: white;
+	color: black;
+}
+
+.seat-row
+{
+	clear: both;
+	color: black;
+}
+
+.seat-col-marker
+{
+	width: 20px;
+	height: 20px;
+	float: left;
+	text-align: center;
+	margin-top:5px;
+	background: white;
+}
+
+.seat-row-marker
+{
+	width: 30px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	padding-top:5px;
+	background-color: rgb(18, 18, 19);
+	color: white;
+	border-right: 1px solid black;	
+}
+
+.seat-row-marker-exit-left
+{
+	width: 30px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	padding-top:5px;
+	background: white;
+	border-right: 1px solid black;
+	background-image:url('/images/dynamic_seatmap/exit_row_left.png');
+}
+
+.seat-row-marker-right
+{
+	width: 30px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	padding-top:5px;
+	background-color: rgb(18, 18, 19);
+	color: white;
+	border-left: 1px solid black;
+}
+
+.seat-row-marker-right-exit-right
+{
+	width: 30px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	padding-top:5px;
+	background: white;
+	border-left: 1px solid black;
+	background-image:url('/images/dynamic_seatmap/exit_row_right.png');
+}
+
+.seat-row-marker-gray
+{
+	width: 30px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	padding-top:5px;
+	background: #EEEEEE;
+	border-right: 1px solid black;	
+}
+
+.seat-row-marker-exit-left-gray
+{
+	width: 30px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	padding-top:5px;
+	background: #EEEEEE;
+	border-right: 1px solid black;
+	background-image:url('/images/dynamic_seatmap/exit_row_left.png');
+}
+
+.seat-row-marker-right-gray
+{
+	width: 30px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	padding-top:5px;
+	background: #EEEEEE;
+	border-left: 1px solid black;
+}
+
+.seat-row-marker-right-exit-right-gray
+{
+	width: 30px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	padding-top:5px;
+	background: #EEEEEE;
+	border-left: 1px solid black;
+	background-image:url('/images/dynamic_seatmap/exit_row_right.png');
+}
+
+.seat-green
+{
+	width: 20px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	background: #ADFF2F;
+	background-image:url('/../assets/seat.gif');
+}
+
+.seat-green:hover {
+	background-color: rgb(28, 128, 196);
+	cursor: pointer;
+}
+
+.seat-green:focus {
+	background-color: rgb(28, 128, 196);
+}
+
+/*.seat-yellow-green
+{
+	width: 20px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	background: yellow;
+	background-image:url('/images/dynamic_seatmap/seat.gif');
+}*/
+
+.seat-yellow
+{
+	width: 20px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	background: yellow;
+	background-image:url('/../assets/seat.gif');
+}
+
+.seat-yellow:hover {
+	background-color: rgb(28, 128, 196);
+	cursor: pointer;
+}
+
+
+/*.seat-red-yellow
+{
+	width: 20px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	background: orange;
+	background-image:url('/images/dynamic_seatmap/seat.gif');
+} */
+
+.seat-orange
+{
+	width: 20px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	background: orange;
+	background-image:url('/../assets/seat.gif');
+}
+
+.seat-orange:hover {
+    background-color: rgb(28, 128, 196);
+	cursor: pointer;
+}
+
+.seat-red
+{
+	width: 20px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	background: #FF3333;
+	background-image:url('/../assets/seat.gif');
+}
+
+.seat-red:hover {
+    background-color: rgb(28, 128, 196);
+	cursor: pointer;
+}
+
+.seat-white
+{
+	width: 20px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	background: white;
+	background-image:url('/../assets/seat.gif');
+}
+
+.seat-white:hover,
+.seat-white:focus {
+    background-color: rgb(28, 128, 196);
+	cursor: pointer;
+}
+
+.seat-gray
+{
+	width: 20px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	background: #CCCCCC;
+	background-image:url('/../assets/seat.gif');
+}
+
+.seat-warning
+{
+	width: 20px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	background: pink;
+	background-image:url('/../assets/seat.gif');
+}
+
+.seat-noseat
+{
+	width: 20px;
+	height: 25px;
+	float: left;
+	text-align: center;
+	background: white;
+	/*background-image:url('/../assets/seat.gif');*/
+}
+
+.class-business, .class-economy {
+	background-color: white;
+	width: 200px;
+}
+
+.addSeats {
+	color: white;
+	position: relative;
+}
+
+.addSeats label {
+	margin-top: 13px;
+}
+
+button {
+	margin-top: 10px;
+}
+
+#chooseBtn {
+	margin-right: 85px;
+	margin-left: 100px;
+}
+
+#chooseBtn, #deleteBtn {
+	margin-top: -40px;
+	float: right;
+}
+
+.seatsTable {
+	margin-top: 20px;
+}
+
+
+
+

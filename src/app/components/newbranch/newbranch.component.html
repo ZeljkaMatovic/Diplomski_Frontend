@@ -1,0 +1,44 @@
+<div class="well" style="padding-top: 1%;">
+    <form [formGroup]="branchForm" (ngSumbit)="createNewBranch()">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2">Create new Rent-a-Car Branch</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Branch Name:</td>
+                    <td><input type="text" formControlName="branchName" [class.allGood]="branchForm.controls.branchName.valid" [class.error]="branchForm.controls.branchName.invalid"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="success" style="align-content: center;">Location of HQ</td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" formControlName="city" [class.allGood]="branchForm.controls.city.valid" [class.error]="branchForm.controls.city.invalid"/></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input type="text" formControlName="address" [class.allGood]="branchForm.controls.address.valid" [class.error]="branchForm.controls.address.invalid"/></td>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td><input type="text" formControlName="number" [class.allGood]="branchForm.controls.number.valid" [class.error]="branchForm.controls.number.invalid"/></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn btn-primary" (mouseenter)="createNew()" data-toggle="modal" data-target="#modify">Add vehicle</button>
+                        
+                    </td>
+                    <td>Vehicle count: {{vehicles.length}} </td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2"><button [disabled]="!branchForm.valid" (click)="createNewBranch()" class="btn btn-success" type="submit" >Create</button></td>
+                </tr>                
+            </tbody>
+        </table>
+    </form>
+</div>
+<app-modify-car [vehicle]="toCreate" (newVehicle)="vehicleControl($event)"></app-modify-car>

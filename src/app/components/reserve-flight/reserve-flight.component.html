@@ -1,0 +1,169 @@
+<div class="background">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+    <div id='title'>
+    </div>
+
+     <div class="font-poppins p-t-130 p-b-100 ">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Reservation Form</h2>
+                    <form [formGroup]="passportForm">
+                        <div style="margin-top: -20px; margin-bottom: 20px;" class="row row-space">
+                            <label class="label">tickets: </label>
+                            <div class="col-8">
+                                <a style="margin-right: 20px;" href="/flightpreview/{{flight.id}}">
+                                    {{flight.destinationFrom}}
+                                    - {{flight.destinationTo}}</a>
+                                <a [hidden]="!multiflight" href="/flightpreview/{{flight2.id}}">
+                                    {{flight2.destinationFrom}} - {{flight2.destinationTo}}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-5">
+                                <div class="input-group">
+                                    <label class="label">first name</label>
+                                    <input class="input--style-4" type="text" name="first_name" value="{{user.name}}">
+                                </div>
+                            </div>
+                            <div class="col-5" style="margin-right: 20px;">
+                                <div class="input-group">
+                                    <label class="label">last name</label>
+                                    <input class="input--style-4" type="text" name="last_name"
+                                        value="{{user.lastname}}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row row-space">
+                            <div class="col-5">
+                                <div class="input-group">
+                                    <label class="label">Passport</label>
+                                    <input class="input--style-4" type="text" formControlName="passport" id="passport"
+                                        list="passList" [class.allGood]="passportForm.controls.passport.valid"
+                                        [class.error]="passportForm.controls.passport.invalid">
+
+                                    <datalist id="passList">
+                                        <option value="{{user.passportNumber}}"> {{user.passportNumber}} </option>
+                                    </datalist>
+                                </div>
+                            </div>
+
+                            <div class="col-2" style="margin-right: 155px;">
+                                <div class="input-group">
+                                    <a href="/{{ticketsCounter + 1}}/chooseseat/-1" class="label">Seat 1</a>
+                                    <input id="seat1" class="input--style-4" type="text"
+                                        value="{{resFlightModel.seat1}}">
+                                </div>
+                            </div>
+
+                            <div class="col-2" style="margin-left: -155px;" [hidden]="!multiflight">
+                                <div class="input-group">
+                                    <a href="/{{flight2.nameOfAirline}}/chooseseat/-2" class="label">Seat 2</a>
+                                    <input id="seat2" class="input--style-4" type="text"
+                                        value="{{resFlightModel.seat2}}">
+                                </div>
+                            </div>
+                        </div>
+                        <hr><br>
+                        <div>
+                            <p>
+                                <label>Add passengers</label>
+                                <i class="fas fa-angle-double-right awFont"></i>
+                                <i class="fas fa-user-plus awFontPlus" data-toggle="modal"
+                                    data-target="#NewPassenger"></i>
+                            </p>
+                        </div>
+
+
+                    </form>
+
+                    <div class="allPassengers" [hidden]="resFlightModel.listOfPassengers.length == 0">
+                        <table class="table table-border">
+                            <th>Name</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                            <th>Passport</th>
+                            <tbody *ngFor="let passenger of resFlightModel.listOfPassengers">
+                                <tr>
+                                    <td>{{passenger.firstName}}</td>
+                                    <td>{{passenger.lastName}}</td>
+                                    <td>{{passenger.email}}</td>
+                                    <td>{{passenger.passport}}</td>
+                                    <td><i class="fas fa-times" (click)="deletePassenger($event, passenger)"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="p-t-15">
+                        <button class="btn btn--radius-2 btn--green" type="submit" [disabled]="!passportForm.valid"
+                            (click)="reserveTicket()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+</div>
+
+<div class="modal fade" id="NewPassenger" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>New passenger</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <form class="form" [formGroup]="passengerForm">
+                        <div class="form-group row">
+                            <tbody>
+                                <tr>
+                                    <td><label>Name:</label></td>
+                                    <td><input type="text" formControlName="namePass" id="namePass"
+                                        [class.allGood]="passengerForm.controls.namePass.valid"
+                                        [class.error]="passengerForm.controls.namePass.invalid"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Lastname:</label></td>
+                                    <td><input type="text" formControlName="lastnamePass" id="lastnamePass"
+                                        [class.allGood]="passengerForm.controls.lastnamePass.valid"
+                                        [class.error]="passengerForm.controls.lastnamePass.invalid"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Email:</label></td>
+                                    <td><input type="text" formControlName="emailPass" id="emailPass"
+                                        [class.allGood]="passengerForm.controls.emailPass.valid"
+                                        [class.error]="passengerForm.controls.emailPass.invalid"></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Passport:</label></td>
+                                    <td><input type="text" formControlName="passportPass" id="passportPass"
+                                        [class.allGood]="passengerForm.controls.passportPass.valid"
+                                        [class.error]="passengerForm.controls.passportPass.invalid"></td>
+                                </tr>
+                                <tr>
+                                    <td><label class="seat-label" style="margin-bottom: 20px !important;">Seat:</label></td>
+                                    <td><input #seatPass type="text" id="seatPass" [value]="resFlightModel.seatPass"><br>
+                                        <button class="choose-btn" (click)="openSeats()">Choose</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><button class="btn btn-submit add-btn" type="submit" [disabled]="!passengerForm.valid"
+                                        (click)="addPassenger()">Add</button></td>
+                                </tr>
+                            </tbody>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

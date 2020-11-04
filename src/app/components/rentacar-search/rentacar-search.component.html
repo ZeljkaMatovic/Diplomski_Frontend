@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+    <table>
+        <tr>
+            <td class="header">Name of service:</td>
+            <td class="header">City:</td>
+            <td class="header">Address:</td>
+            <td class="header">Number:</td>
+            <td class="header">Wanted dates:</td>
+        </tr>
+        <tr>
+            <td><input type="text" formControlName="name"/></td>
+            <td><input type="text" formControlName="city"/></td>
+            <td><input type="text" formControlName="address"/></td>
+            <td><input type="number" formControlName="number"></td>
+            <td><app-calendar [isMultiSelect]="isMultiSelect" (messageEvent)="receiveMessage($event)"></app-calendar></td>
+            <td><input type="button" class="btn btn-success" (click)="searchRentacar()" value="Search" ></td>
+        </tr>
+    </table>
+</form>

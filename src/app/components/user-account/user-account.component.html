@@ -1,0 +1,100 @@
+<header id="profileCard">
+    <div class="wrapper">
+        <div class="left">
+            <img id="userImage" [src]="src" alt="user" width="100">
+            <button class="btn" (click)="showInfo()"
+                style="font-weight: bold; font-size: 25px;"><span>{{user.userName}}</span></button>
+            <!-- <input type="file" id="selectedFile" value="Change photo"/> -->
+            <input type="file" id="selectedFile" style="display: none;" (change)="changeProfilePhoto($event)"/>
+            <button class="btn" (click)="openFile()">
+                <span>Change photo</span></button>
+            <button class="btn" id="btnChange" (click)="changePassword()"><span>Change password</span></button>
+            <button class="btn" id="btnChange" (click)="changeProfile()"><span>Change profile</span></button>
+            <!-- <p>UI developer</p> -->
+        </div>
+        <div class="right">
+            <div class="info">
+                <h3>Information</h3>
+                <div id="allInfo">
+                    <div class="info_data">
+                        <div class="data">
+                            <h4>Name:</h4>
+                            <p>{{user.name}} {{user.lastname}}</p>
+                        </div>
+                    </div>
+                    <div class="info_data">
+                        <div class="data">
+                            <h4>Email:</h4>
+                            <p>{{user.email}}</p>
+                        </div>
+                    </div>
+                    <div class="info_data">
+                        <div class="data">
+                            <h4>City:</h4>
+                            <p>{{user.city}}</p>
+                        </div>
+                    </div>
+                    <div class="info_data">
+                        <div class="data">
+                            <h4>Phone:</h4>
+                            <p>{{user.phoneNumber}}</p>
+                        </div>
+                    </div>
+                </div>
+                <form [formGroup]="passwordForm" (ngSubmit)="checkPassword()">
+                    <div id="changePass">
+                        <div class="data">
+                            <h4>Password:</h4>
+                            <input type="password" readonly value="{{user.password}}"
+                                style="border-color: transparent; background-color: transparent; color: rgb(168, 159, 168);">
+                        </div>
+                        <div class="data" style="padding: 5px;">
+                            <h4 style="font-size: 20px;">New password:</h4>
+                            <input type="password" formControlName="password" [class.allGood]="passwordForm.controls.password.valid" [class.error]="passwordForm.controls.password.invalid" style="border-radius: 10px;">
+                        </div>
+                        <div class="data" style="padding: 5px;">
+                            <h4 style="font-size: 20px;">Repeat password:</h4>
+                            <input type="password" formControlName="password2" [class.allGood]="passwordForm.controls.password2.valid" [class.error]="passwordForm.controls.password2.invalid" style="border-radius: 10px;">
+                        </div>
+                        <div style="padding: 10px;">
+                            <button type="submit" class="btn">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form [formGroup]="userChangeForm" (ngSubmit)="checkChanges()">
+                    <div id="changeProfile">
+                        <div class="data">
+                            <h4>Name:</h4>
+                            <input type="text" formControlName="name" placeholder="{{user.name}}"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="data">
+                            <h4>Lastname:</h4>
+                            <input type="text" formControlName="lastname" placeholder="{{user.lastname}}"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="data">
+                            <h4>Email:</h4>
+                            <input type="text" formControlName="email" placeholder="{{user.email}}"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="data">
+                            <h4>City:</h4>
+                            <input type="text" formControlName="city" placeholder="{{user.city}}"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="data">
+                            <h4>Phone:</h4>
+                            <input type="text" formControlName="phone" placeholder="{{user.phone}}"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div style="padding: 10px;">
+                            <button [disabled]="!userChangeForm.valid" type="submit" class="btn">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>

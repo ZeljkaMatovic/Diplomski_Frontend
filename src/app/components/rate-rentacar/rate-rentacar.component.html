@@ -1,0 +1,55 @@
+<div class="modal fade" id="rateRentacar" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ratingStars">Rating</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <form class="form">
+                        <div class="form-group row">
+                            <label>Rate car:</label>
+                            <div class="stars">
+                                <form name="stars">
+                                  <input class="star star-5" id="star-5" type="radio" name="star" value="5" (change)="radioHandler($event)"/>
+                                  <label class="star star-5" for="star-5"></label>
+                                  <input class="star star-4" id="star-4" type="radio" name="star" value="4" (change)="radioHandler($event)"/>
+                                  <label class="star star-4" for="star-4"></label>
+                                  <input class="star star-3" id="star-3" type="radio" name="star" value="3" (change)="radioHandler($event)"/>
+                                  <label class="star star-3" for="star-3"></label>
+                                  <input class="star star-2" id="star-2" type="radio" name="star" value="2" (change)="radioHandler($event)"/>
+                                  <label class="star star-2" for="star-2"></label>
+                                  <input class="star star-1" id="star-1" type="radio" name="star" value="1" (change)="radioHandler($event)"/>
+                                  <label class="star star-1" for="star-1"></label>
+                                </form>
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label>Rate Rent-a-Car:</label>
+                            <div class="stars2">
+                                <form action="">
+                                  <input class="star2 star-5" id="star2-5" type="radio" name="star2" value="5" (change)="radioHandler2($event)"/>
+                                  <label class="star2 star-5" for="star2-5"></label>
+                                  <input class="star2 star-4" id="star2-4" type="radio" name="star2" value="4" (change)="radioHandler2($event)"/>
+                                  <label class="star2 star-4" for="star2-4"></label>
+                                  <input class="star2 star-3" id="star2-3" type="radio" name="star2" value="3" (change)="radioHandler2($event)"/>
+                                  <label class="star2 star-3" for="star2-3"></label>
+                                  <input class="star2 star-2" id="star2-2" type="radio" name="star2" value="2" (change)="radioHandler2($event)"/>
+                                  <label class="star2 star-2" for="star2-2"></label>
+                                  <input class="star2 star-1" id="star2-1" type="radio" name="star2" value="1" (change)="radioHandler2($event)"/>
+                                  <label class="star2 star-1" for="star2-1"></label>
+                                </form>
+                                </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button [disabled]="!rated || !rated2" class="btn btn-success" data-dismiss="modal" (click)="rateAll()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

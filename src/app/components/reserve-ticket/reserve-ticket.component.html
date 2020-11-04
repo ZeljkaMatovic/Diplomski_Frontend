@@ -1,0 +1,52 @@
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Reservation Form</h2>
+                <form [formGroup]="passportForm">
+                    <div style="margin-top: -20px; margin-bottom: 20px;" class="row row-space">
+                        <label class="label">tickets: </label>
+                        <div class="col-8">
+                            <a style="margin-right: 20px;" href="/ticketpreview/{{ticket.id}}">
+                                {{ticket.destinationFrom}}
+                            - {{ticket.destinationTo}}</a>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-5">
+                            <div class="input-group">
+                                <label class="label">first name</label>
+                                <input class="input--style-4" type="text" name="first_name"
+                                value="{{user.name}}">
+                            </div>
+                        </div>
+                        <div class="col-5" style="margin-right: 20px;">
+                            <div class="input-group">
+                                <label class="label">last name</label>
+                                <input class="input--style-4" type="text" name="last_name"
+                                value="{{user.lastname}}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-space">
+                        <div class="col-5">
+                            <div class="input-group">
+                                <label class="label">Passport</label>
+                                <input class="input--style-4" type="text" formControlName="passport" id="passport"
+                                [class.allGood]="passportForm.controls.passport.valid" [class.error]="passportForm.controls.passport.invalid">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="p-t-15">
+                        <button class="btn btn--radius-2 btn--green" type="submit" 
+                        [disabled]="!passportForm.valid" (click)="reserveTicket()">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<!--<div class="card" style="width: 15rem;">
+    <div class="card-body">
+        <h5 class="card-title">Naziv grupe</h5>
+        <p>broj poena potrebnih</p>
+        <p>procenat</p>
+    </div>
+</div>-->
+<br/>
+<br/>
+<br/>
+<app-discount-modal [discountGroup]="group" (newGroup)="createNew($event)"></app-discount-modal>
+
+<div class="search">
+    <label class="element">Search Group by name:</label>
+    <span class="inputel">
+        <input class="element" type="text" [(ngModel)]="name"/> 
+    </span>
+    <span class="inputel">
+        <button style="margin-bottom: 5px;" (click)="search()" class="btn btn-success element">Search</button>  
+    </span>
+    
+</div>
+
+<div class="scrollmenu">
+    <app-discount-cards (toDelete)="deleteGroup($event)" class="part" *ngFor="let discount of discounts" (group)="modifySetter($event)" [discountGroup]="discount"></app-discount-cards>
+</div>
+
+<div class="new">
+    <label class="inputel">
+        <button data-toggle="modal" (mouseenter)="createSetter()" data-target="#modify" class="btn btn-success elemenet">Create new</button>
+    </label>
+</div>
+
+
+
+<!--<div class="row">
+    <div id="carDiv" class="col col-md-12 offset-2">
+        <table class="table table-bordered">
+            <thead>
+                <th *ngIf="serviceType=='rentacar'" colspan="3">{{serviceName}} Discount Groups</th>
+                <th *ngIf="serviceType=='airline'" colspan="3">{{serviceName}} Discount Groups</th>
+            </thead>
+            <tbody>
+                <div *ngFor="let discount of discounts; let i = index">
+                    <tr>
+                        <td rowspan="3">Group:</td>
+                        <td colspan="2">{{discount.groupName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Minimal points: {{discount.minPoints}}</td>
+                        <td>Discount %: {{discount.discountPercentage}}%</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="button" class="btn btn-danger" (Click)="deleteGroup(i)">Delete</button></td>
+                    </tr>
+                </div>
+                <div>
+                    <form>
+                        <tr>
+                            <th colspan="3">New discount group</th>
+                        </tr>
+                        <tr>
+                            <td>Group name:</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Minimal points:</td>
+                            <td><input type="number"/></td>
+                        </tr>
+                        <tr>
+                            <td>Percentage:</td>
+                            <td><input type="number"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><button class="btn btn-success">Create</button></td>
+                        </tr>
+                    </form>
+                    
+                </div>                
+            </tbody>
+        </table>
+    </div>
+</div>-->

@@ -1,0 +1,98 @@
+.active-pink-2 input {
+    height: 40px;
+    margin-top: 10px;
+    background-color: transparent;
+    color: white;
+    border: 0px;
+    border-bottom: 2px solid #f48fb1;
+}
+
+.active-pink-2 input[type=text]:focus:not([readonly]) {
+    border-bottom: 2px solid cyan;
+    box-shadow: 0 2px 0 0 cyan;
+    color: white;
+}
+
+.fas {
+    margin-right: 12px;
+    color: gray;
+    margin-top: 8px;
+}
+
+.fas:hover {
+    cursor: pointer;
+}
+
+ul {
+    position: relative;
+    width: 650px;
+    margin: 50px auto 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+ul li {
+    display: flex;
+    background: rgba(255,255,255,.1);
+    padding: 10px 20px;
+    color: #fff;
+    margin: 13px 0;
+    transition: .5s;
+    border-radius: 15px;
+}
+
+ul li:nth-child(n)
+{
+    background: rgba(255,255,255,.4);
+}
+
+ul li span:nth-child(1) {
+    width: 50px;
+}
+
+ul li span:nth-child(2) {
+    width: 200px;
+}
+
+ul li span:nth-child(3) {
+    width: 300px;
+    text-align: right;
+}
+
+ul li span:nth-child(4) {
+    width: 100px;
+    text-align: right;
+}
+
+ul li:hover {
+    transform: scale(1.06);
+    background: #da587f;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+ul h4 {
+    font-size: 20px;
+}
+
+ul p {
+    font-size: 15px;
+}
+
+.fa-user-times {
+    color: rgb(206, 10, 10);
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.fa-address-card {
+    color: rgb(13, 105, 13);
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+

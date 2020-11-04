@@ -1,0 +1,20 @@
+<table class="table table-hover">
+    <thead>
+        <th scope="col">Name</th>
+        <th scope="col">Car</th>
+        <th scope="col">Year made</th>
+        <th scope="col">Start date</th>
+        <th scope="col">End date</th>
+        <th scope="col">Discount</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let car of specialCars">
+            <td>{{car.name}}</td>
+            <td>{{car.markOfVehicle}} {{car.modelOfVehicle}}</td>
+            <td>{{car.yearMade}}.</td>
+            <td>{{car.startDate}}</td>
+            <td>{{car.endDate}}</td>
+            <td>{{car.discount}}%</td>
+        </tr>
+    </tbody>
+</table>

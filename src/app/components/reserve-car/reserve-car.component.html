@@ -1,0 +1,81 @@
+<div class="modal fade" id="reserve" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="title">
+                    {{titleString}} reservation
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <form [formGroup]="resForm" class="form">
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Name: </label>
+                            <label for="code" class="col-sm-8 col-form-label">{{car.name}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Mark and model:</label>
+                            <label for="code" class="col-sm-8 col-form-label">{{car.markOfVehicle}} {{car.modelOfVehicle}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Type of vehicle:</label>
+                            <label for="code" class="col-sm-8 col-form-label">{{car.typeOfVehicle}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Year made:</label>
+                            <label for="code" class="col-sm-8 col-form-label">{{car.yearMade}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Number of seats:</label>
+                            <label for="code" class="col-sm-8 col-form-label">{{car.numberOfSeats}}</label>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">City of taking:</label>
+                            <div class="col-sm-8">
+                                <select formControlName="cityot">
+                                    <option *ngFor="let branch of listOfBranches1" [value]="branch.location.nameOfCity">
+                                        {{branch.location.nameOfCity}}
+                                    </option>
+                                </select>
+                            </div>                            
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">City of return:</label>
+                            <div class="col-sm-8">
+                                <select formControlName="cityor">
+                                    <option *ngFor="let branch of listOfBranches2" [value]="branch.location.nameOfCity">
+                                        {{branch.location.nameOfCity}}
+                                    </option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Date of taking:</label>
+                            <div class="col-sm-8">
+                                <app-calendar [selectedDate]="cssDate" [isMultiSelect]="false" (messageEvent)="startDate($event)"></app-calendar>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Date of return:</label>
+                            <div class="col-sm-8">
+                                <app-calendar [selectedDate]="cseDate" [isMultiSelect]="false" (messageEvent)="endDate($event)"></app-calendar>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-4 col-form-label">Total price:</label>
+                            <label for="code" class="col-sm-8 col-form-label">{{totalPrice}}</label>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" [disabled]="!resForm.valid && sDate == null && eDate == null" class="btn btn-secondary" data-dismiss="modal" (click)="reserve()">{{titleString}}</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

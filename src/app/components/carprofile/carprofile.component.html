@@ -1,0 +1,76 @@
+<header class="rentacarHeader">
+    <div id="templateo_container">
+        <div id="templatemo_menu_banner_panel" style="background-image: url('assets/{{serviceFound.image}}')">
+            <div id="templatemo_menu_wrapper">
+                <div id="templatemo_menu">
+                    <ul>
+                          <li><a id="addressBtn" routerLink="../address" class="current">Adress</a></li>
+                          <li><a id="descriptionBtn" routerLink="../description">Description</a> </li>
+                          <li><a id="branchesBtn" routerLink="../branches">Branches</a></li>
+                          <li *ngIf="userType=='rcsa'"><a  id="specialsBtn" routerLink="../special-offers">Special offers</a></li>
+                          <li *ngIf="userType=='ru' && hasRoundWayTicket"><a routerLink="../quick-reservation">Quick reservation</a></li>
+                          <li class="last"><a id="vehicleBtn" routerLink="../vehicles">Vehicle list</a></li>
+                    </ul>    	
+                </div> <!-- end of menu -->        
+            </div> <!-- end of menu wrapper -->
+    
+            <div id="templatemo_banner">
+            
+                <div class="header_02">{{serviceFound.nameOfService}}<br/>
+                    <div *ngIf="userType == 'rcsa'">
+                        Average rate: {{serviceFound.averageRatingOfService}}
+                        <br/><button class="btn btn-primary" data-toggle="modal" data-target="#modifyRentacar">Edit information</button>
+                    </div>
+                </div>
+                
+            
+            </div> <!-- end of banner -->
+            
+            <div class="cleaner">&nbsp;</div>    
+        </div>
+    
+        <div id="templatemo_content_wrapper">
+            <div *ngIf="pathString=='address'; then addressBlock"></div>
+            <div *ngIf="pathString=='description'; then descriptionBlock"></div>
+            <div *ngIf="pathString=='branches'; then branchesBlock"></div>
+            <div *ngIf="pathString=='vehicles'; then vehicleBlock"></div>
+            <div *ngIf="pathString=='special-offers'; then specialBlock"></div>
+            <div *ngIf="pathString=='quick-reservation'; then quickBlock"></div>
+            <ng-template #addressBlock>
+                <header style="margin-left: 20px; margin-top: 10px;">
+                    <p>Address of company HQ:</p>
+                    <p>City: {{serviceFound.location.nameOfCity}}</p>
+                    <p>Street: {{serviceFound.location.nameOfStreet}} {{serviceFound.location.numberInStreet}}</p>
+                    <div class="map">
+                        <agm-map [latitude]="serviceFound.location.geoWidth" [longitude]="serviceFound.location.geoHeight">
+                            <agm-marker [latitude]="serviceFound.location.geoWidth" [longitude]="serviceFound.location.geoHeight"></agm-marker>
+                        </agm-map>
+                    </div>
+                </header>
+            </ng-template>
+            <ng-template #descriptionBlock>
+                <header style="margin-left: 20px; margin-top: 10px;">
+                    <p>Description of service:</p>
+                    <p>{{serviceFound.descriptionOfService}}</p>
+                </header>
+            </ng-template> 
+            <ng-template #branchesBlock>
+                <app-branches></app-branches>
+            </ng-template>
+            <ng-template #vehicleBlock>
+                <app-vehicles (modifyId)="modify($event)" (deleteVehicle)="deleteVehicle($event)" [serviceId]="serviceFound.id" [userType]="userType" [vehicles]="serviceFound.listOfVehicles"></app-vehicles>
+                <button *ngIf="userType=='rcsa'" (mouseenter)="createNew()" data-toggle="modal" data-target="#modify"  class="btn btn-primary">Create new</button>
+                <app-modify-car [vehicle]="toModify" (newVehicle)="decision($event)"></app-modify-car>
+            </ng-template>
+            <ng-template #specialBlock>
+                <app-special-offers [vehicles]="serviceFound.listOfVehicles"></app-special-offers>
+            </ng-template>
+            <ng-template #quickBlock>
+                <app-quick-car [rentacar]="serviceFound"></app-quick-car>
+            </ng-template>
+        </div> <!-- end of content wrapper -->
+    </div>
+</header>
+
+
+<app-edit-rentacar *ngIf="userType=='rcsa'"></app-edit-rentacar>

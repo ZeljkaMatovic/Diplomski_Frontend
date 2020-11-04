@@ -1,0 +1,50 @@
+<form [formGroup]="searchForm">
+    <table>
+        <tr>
+            <td>City of taking:</td>
+            <td>Date of taking</td>
+            <td>City of return</td>
+            <td>Date of return</td>
+        </tr>
+        <tr>
+            <td>
+                <select formControlName="cityot">
+                    <option *ngFor="let branch of listOfBranches1" [value]="branch.location.nameOfCity">
+                        {{branch.location.nameOfCity}}
+                    </option>
+                </select>
+            </td>
+            <td>
+                <app-calendar [isMultiSelect]="isMulti" (messageEvent)="startDate($event)"></app-calendar>
+            </td>
+            <td>
+                <select formControlName="cityor">
+                    <option *ngFor="let branch of listOfBranches2" [value]="branch.location.nameOfCity">
+                        {{branch.location.nameOfCity}}
+                    </option>
+                </select>
+            </td>
+            <td>
+                <app-calendar [isMultiSelect]="isMulti" (messageEvent)="endDate($event)"></app-calendar>
+            </td>
+        </tr>
+        <tr>
+            <td>Type of vehicle</td>
+            <td>Number of seats</td>
+            <td>Max total price</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <select formControlName="tov">
+                    <option *ngFor="let type of tovList" [value]="type">
+                        {{type}}
+                    </option>
+                </select>
+            </td>
+            <td><input type="number" formControlName="nos"/></td>
+            <td><input type="number"  formControlName="price" /></td>
+            <td><button [disabled]="!searchForm.valid || dateOT == null || dateOR == null || dateOT > dateOR" style="margin-left: 90px; margin-bottom: 5px;" class="btn btn-success">Search</button></td>
+        </tr>
+    </table>
+</form>

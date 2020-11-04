@@ -1,0 +1,106 @@
+<div *ngIf="user.role == 'arsadmin' then adminBlock"></div>
+<ng-template #adminBlock>
+	<button style="margin-left: 800px; margin-top: 10px;" (click)="changeModify()">Modify</button>
+</ng-template>
+
+<div class="seatOptions">
+	<input id="seatId" type="text" class="form-control" readonly>
+	<button id="chooseBtn" class="btn btn-success" type="submit" (click)="chooseSeat()" [hidden]="user.role == 'arsa' && idSeat!=1">
+		Choose</button>
+	<button id="deleteBtn" class="btn btn-danger" type="submit" (click)="deleteSeat()" [hidden]="user.role != 'arsa'">
+		Delete</button>
+	<br>
+	<button id="addBtn" class="btn btn-primary" type="submit" (click)="changeModify()" [hidden]="user.role != 'arsa'">
+		Add seats</button>
+	<br>
+	<div class="addSeats" [hidden]="!modify">
+		<table class="seatsTable">
+			<tr>
+				<td><label>Enter number of business seats: </label></td>
+				<td><input class="form-control" id="busNum" type="number" value="0"></td>
+			</tr>
+			<tr>
+				<td><label>Enter number of economy seats: </label></td>
+				<td><input class="form-control" id="ecoNum" type="number" value="0"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button class="btn btn-success" type="submit" (click)="modifyPlane()">Submit</button>
+				</td>
+			</tr>
+			</table>
+	</div>
+</div>
+
+<div id="plane-image">
+	<div class="seat-map" style="width: 204px; margin-right: 350px;">
+
+		<div class="seat-cockpit"><img style="margin-left: -1px;" src="../assets/cockpit_7col.gif"></div>
+
+		<div class="seat-row">
+			<div class="seat-row-marker"></div>
+			<div class="seat-class-title" style="width: 140px;">Business</div>
+			<div class="seat-row-marker-right"></div>
+		</div>
+
+		<div class="class-business">
+			<div class="seat-row">
+				<div class="seat-row-marker"></div>
+				<div class="seat-col-marker">A</div>
+				<div class="seat-col-marker">C</div>
+				<div class="seat-col-marker" style="width:60px;"></div>
+				<div class="seat-col-marker">D</div>
+				<div class="seat-col-marker">F</div>
+				<div class="seat-row-marker-right"></div>
+			</div>
+
+			<div id="row-2" class="seat-row" *ngFor="let row of plane.businessRows">
+				<div id="row-marker-2" class="seat-row-marker">{{row.idRow}}</div>
+				<div class="{{row.seat1.class}}" tabindex="1" (click)="findSeatId($event, row, row.seat1)"></div>
+				<div class="{{row.seat2.class}}" tabindex="1" (click)="findSeatId($event, row, row.seat2)"></div>
+				<div class="{{row.seat3.class}}" tabindex="1" (click)="findSeatId($event, row, row.seat3)"></div>
+				<div class="{{row.seat4.class}}" tabindex="1" (click)="findSeatId($event, row, row.seat4)"></div>
+				<div class="{{row.seat5.class}}" tabindex="1" (click)="findSeatId($event, row, row.seat5)"></div>
+				<div class="{{row.seat6.class}}" tabindex="1" (click)="findSeatId($event, row, row.seat6)"></div>
+				<div class="{{row.seat7.class}}" tabindex="1" (click)="findSeatId($event, row, row.seat7)"></div>
+				<div id="row-marker-right-2" class="seat-row-marker-right"></div>
+			</div>
+		</div>
+
+		<div class="seat-row">
+			<div class="seat-row-marker"></div>
+			<div class="seat-class-title" style="width: 140px;">Economy</div>
+			<div class="seat-row-marker-right"></div>
+		</div>
+
+		<div class="class-economy">
+			<div class="seat-row">
+				<div class="seat-row-marker"></div>
+				<div class="seat-col-marker">A</div>
+				<div class="seat-col-marker">B</div>
+				<div class="seat-col-marker">C</div>
+				<div class="seat-col-marker" style="width:20px;"></div>
+				<div class="seat-col-marker">D</div>
+				<div class="seat-col-marker">E</div>
+				<div class="seat-col-marker">F</div>
+				<div class="seat-row-marker-right"></div>
+			</div>
+
+			<div id="row-2" class="seat-row" *ngFor="let row of plane.economyRows">
+				<div id="row-marker-2" class="seat-row-marker">{{row.idRow}}</div>
+				<div class="{{row.seat1.class}}" tabindex="1" (click)="findEcoSeatId($event, row, row.seat1)"></div>
+				<div class="{{row.seat2.class}}" tabindex="1" (click)="findEcoSeatId($event, row, row.seat2)"></div>
+				<div class="{{row.seat3.class}}" tabindex="1" (click)="findEcoSeatId($event, row, row.seat3)"></div>
+				<div class="{{row.seat4.class}}" tabindex="1" (click)="findEcoSeatId($event, row, row.seat4)"></div>
+				<div class="{{row.seat5.class}}" tabindex="1" (click)="findEcoSeatId($event, row, row.seat5)"></div>
+				<div class="{{row.seat6.class}}" tabindex="1" (click)="findEcoSeatId($event, row, row.seat6)"></div>
+				<div class="{{row.seat7.class}}" tabindex="1" (click)="findEcoSeatId($event, row, row.seat7)"></div>
+				<div id="row-marker-right-2" class="seat-row-marker-right"></div>
+			</div>
+
+			
+			<div class="seat-row"></div>
+		</div>
+		<div class="seat-tail"><img style="margin-left: -1px;" src="../assets/tail_7col.gif"></div>
+	</div>
+</div>
+

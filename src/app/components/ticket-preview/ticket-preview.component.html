@@ -1,0 +1,49 @@
+<div class="container-contact100">
+    <div class="wrap-contact100">
+        <form class="contact100-form validate-form">
+            <div>
+                <h2 style="margin-top: -15px;">Ticket information</h2>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">From: </span>
+                <input class="input100" type="text" value="{{ticket.destinationFrom}}" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">To: </span>
+                <input class="input100" type="text" value="{{ticket.destinationTo}}" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">Date: </span>
+                <input class="input100" type="text" value="{{ticket.dateAndTime | date: 'dd. MMM y.'}}" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">Time: </span>
+                <input class="input100" type="text" value="{{ticket.dateAndTime | date: 'HH:mm'}}h" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">Seat: </span>
+                <input class="input100" type="text" value="{{ticket.seat}}" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100" style="margin-top: -15px;">Original price: </span>
+                <input class="input100" type="text" value="{{ticket.originalPrice}}$" readonly>
+                <!-- <input class="input100" type="text" value="{{flight.businessPrice}}$" readonly [hidden]="!business"> -->
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">Sale: </span>
+                <input class="input100" type="text" value="{{ticket.sale}}%" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100" style="margin-top: -15px;">Airline company: </span>
+                <input class="input100" type="text" value="{{ticket.nameOfCompany}}" readonly>
+            </div>
+            <div>
+                TOTAL PRICE: <p style="margin-left: 400px; margin-top: -27px;">
+                    <input type="text" style="background-color: transparent;" value="{{ticket.totalPrice}}$" readonly></p>
+            </div>
+            
+        </form>
+        <div class="contact100-more flex-col-c-m" style="background-image: url('/assets/{{ticket.destinationFrom}}.jpg');">
+        </div>
+    </div>
+</div>

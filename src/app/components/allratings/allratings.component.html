@@ -1,0 +1,83 @@
+<header class="rateHeader">
+  <div class="row">
+    <div class="col-3">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home"
+          role="tab">
+          <i class="fas fa-star" style="color: white; margin-right: 5px;"></i>Ratings for:</a>
+        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile"
+          role="tab" aria-controls="profile">Airline</a>
+        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+          href="#list-messages" role="tab" aria-controls="messages">Flights</a>
+      </div>
+    </div>
+    <div class="col-9 rates">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+          <div class="container">
+            <div class="row">
+              <div class="neons col-12">
+                <h1><em>-see your rates-</em></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+          <p>Average rate:</p>
+          <p style="margin-left: 180px;">{{averageRate}}/5</p>
+          <div class="stars">
+            <form name="stars">
+              <input class="star star-5" id="star-5" type="radio" name="star" value="5" disabled
+                [checked]="averageRate==5" />
+              <label class="star star-5" for="star-5"></label>
+              <input class="star star-4" id="star-4" type="radio" name="star" value="4" disabled
+                [checked]="averageRate==4" />
+              <label class="star star-4" for="star-4"></label>
+              <input class="star star-3" id="star-3" type="radio" name="star" value="3" disabled
+                [checked]="averageRate==3" />
+              <label class="star star-3" for="star-3"></label>
+              <input class="star star-2" id="star-2" type="radio" name="star" value="2" disabled
+                [checked]="averageRate==2" />
+              <label class="star star-2" for="star-2"></label>
+              <input class="star star-1" id="star-1" type="radio" name="star" value="1" disabled
+                [checked]="averageRate==1" />
+              <label class="star star-1" for="star-1"></label>
+            </form>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+          <table class="table table-bordered">
+            <thead>
+              <th>Flight</th>
+              <th>Rate</th>
+              <th></th>
+            </thead>
+            <tbody *ngFor="let flight of airline.listOfFlights">
+              <td>{{flight.destinationFrom}} - {{flight.destinationTo}}</td>
+              <td>{{flight.averageRate}}/5</td>
+              <td>
+                <form name="stars">
+                  <input class="star star-5" id="star-5" type="radio" name="star" value="5" disabled
+                    [checked]="flight.averageRate==5" />
+                  <label class="star star-5" for="star-5"></label>
+                  <input class="star star-4" id="star-4" type="radio" name="star" value="4" disabled
+                    [checked]="flight.averageRate==4" />
+                  <label class="star star-4" for="star-4"></label>
+                  <input class="star star-3" id="star-3" type="radio" name="star" value="3" disabled
+                    [checked]="flight.averageRate==3" />
+                  <label class="star star-3" for="star-3"></label>
+                  <input class="star star-2" id="star-2" type="radio" name="star" value="2" disabled
+                    [checked]="flight.averageRate==2" />
+                  <label class="star star-2" for="star-2"></label>
+                  <input class="star star-1" id="star-1" type="radio" name="star" value="1" disabled
+                    [checked]="flight.averageRate==1" />
+                  <label class="star star-1" for="star-1"></label>
+                </form>
+              </td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

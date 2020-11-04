@@ -1,0 +1,32 @@
+.carsDisplay {
+	height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.nav-link {
+    width: 50%;
+    background-color: rgb(58, 46, 46);
+    color: white;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.nav-link:focus, .active {
+    background-color: rgb(105, 94, 94) !important;
+    color: white !important;
+}
+
+
+label {
+    margin-left: 45%;
+}
+
+label:hover {
+    cursor: pointer;
+}
+

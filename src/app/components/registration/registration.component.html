@@ -1,0 +1,67 @@
+
+<form [formGroup]="regService.formModel" autocomplete="off" (submit)="onSubmit()">
+    <table class="table table-bordered">
+        <div class="form-group required">
+            <label>Username</label>
+            <input class="form-control" formControlName="UserName">
+            <label class="text-danger"
+                *ngIf="regService.formModel.get('UserName').touched && regService.formModel.get('UserName').errors?.required">This
+                field is mandatory.</label>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" formControlName="Email">
+            <label class="text-danger"
+                *ngIf="regService.formModel.get('Email').touched && regService.formModel.get('Email').errors?.email">Invalid
+                email address.</label>
+        </div>
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" formControlName="Name">
+        </div>
+        <div class="form-group">
+            <label>Lastname</label>
+            <input class="form-control" formControlName="Lastname">
+        </div>
+        <div class="form-group">
+            <label>Phone number</label>
+            <input class="form-control" formControlName="PhoneNumber">
+        </div>
+        <div class="form-group">
+            <label>Passport number</label>
+            <input class="form-control" formControlName="Passport">
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input class="form-control" formControlName="City">
+        </div>
+        <div formGroupName="Passwords">
+            <div class="form-group required">
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="Password">
+                <label class="text-danger"
+                    *ngIf="regService.formModel.get('Passwords.Password').touched && regService.formModel.get('Passwords.Password').errors?.required">This
+                    field is mandatory.</label>
+                <label class="text-danger"
+                    *ngIf="regService.formModel.get('Passwords.Password').touched && regService.formModel.get('Passwords.Password').errors?.minlength">Minimum
+                    4 characters required.</label>
+            </div>
+            <div class="form-group required">
+                <label>Confirm Password</label>
+                <input type="password" class="form-control" formControlName="ConfirmPassword">
+                <label class="text-danger"
+                    *ngIf="regService.formModel.get('Passwords.ConfirmPassword').touched && regService.formModel.get('Passwords.ConfirmPassword').errors?.required">This
+                    field is mandatory.</label>
+                <label class="text-danger"
+                    *ngIf="regService.formModel.get('Passwords.ConfirmPassword').touched && regService.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm
+                    Password does not match.</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-8 offset-md-2">
+                <button type="submit" class="btn btn-lg btn-block" [disabled]="!regService.formModel.valid">Sign
+                    Up</button>
+            </div>
+        </div>
+    </table>
+</form>

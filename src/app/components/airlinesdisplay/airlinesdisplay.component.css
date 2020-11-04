@@ -1,0 +1,27 @@
+.airlineDisplay {
+	height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+tr {
+    border-radius: 5px;
+}
+
+td {
+    /* font-weight: bold; */
+    color: rgb(235, 250, 253);
+}
+
+tbody {
+    background-color: black;
+    border: 1px black;
+}
+
+th {
+    background-color: rgb(58, 46, 46) !important;
+}

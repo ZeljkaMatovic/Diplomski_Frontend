@@ -1,0 +1,53 @@
+<div class="container-contact100">
+    <div class="wrap-contact100">
+        <form class="contact100-form validate-form">
+            <div>
+                <h2 style="margin-top: -15px;">Flight information</h2>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">From: </span>
+                <input class="input100" type="text" value="{{flight.destinationFrom}}" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">To: </span>
+                <input class="input100" type="text" value="{{flight.destinationTo}}" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">Date: </span>
+                <input class="input100" type="text" value="{{flight.departingDateTime | date: 'dd. MMM y.'}}" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">Time: </span>
+                <input class="input100" type="text" value="{{flight.departingDateTime | date: 'HH:mm'}}h" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">Duration: </span>
+                <input class="input100" type="text" value="{{flight.duration | date: 'HH:mm'}}h" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100" style="margin-top: -15px;">Number of changeover: </span>
+                <input class="input100" type="text" value="{{flight.numberChangeover}}" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100" style="margin-top: -15px;">Changeover locations: </span>
+                <input class="input100" type="text" value="{{flight.locationsChangeover}}" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">Flight class: </span>
+                <input class="input100" type="text" value="{{resModel.FlightClass}}" readonly>
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100">Ticket price: </span>
+                <input class="input100" type="text" value="{{flight.ticketPrice}}$" readonly [hidden]="business">
+                <input class="input100" type="text" value="{{flight.businessPrice}}$" readonly [hidden]="!business">
+            </div>
+            <div class="wrap-input100">
+                <span class="label-input100" style="margin-top: -15px;">Airline company: </span>
+                <input class="input100" type="text" value="{{flight.nameOfAirline}}" readonly>
+            </div>
+            
+        </form>
+        <div class="contact100-more flex-col-c-m" style="background-image: url('/assets/{{flight.destinationFrom}}.jpg');">
+        </div>
+    </div>
+</div>

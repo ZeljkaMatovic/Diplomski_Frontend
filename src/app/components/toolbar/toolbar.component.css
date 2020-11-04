@@ -1,0 +1,22 @@
+.toolbar{
+    
+    font-size: 25px;
+}
+
+.toolbar > button{
+    color: white;
+    
+}
+
+.navbar-brand {
+    font-style: italic;
+    color: aqua;
+}
+
+#toolImg {
+    margin-left: 10px;
+}
+
+#toolImg1 {
+    margin-left: 15px;
+}

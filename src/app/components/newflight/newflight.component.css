@@ -1,0 +1,41 @@
+input{
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.error {
+    border-color: red;
+}
+
+.allGood {
+    border-color: green;
+}
+
+.table {
+    margin: 25px;
+    margin-left: 430px;
+    width: 450px;
+    background-color: rgb(120, 17, 146, 0.6);
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+button {
+    margin-left: 370px;
+}
+
+th {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    height: 70px;
+    font-size: 25px;
+    color: tan;
+}
+
+select {
+    margin-top: 20px;
+    margin-left: 13px;
+}

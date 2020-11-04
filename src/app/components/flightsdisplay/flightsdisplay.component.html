@@ -1,0 +1,93 @@
+<header class="allFlights" style="background-color: white;">
+    <div class="preloader" style="display: none;"></div>
+    <div class="mg-page-title parallax" style="background-position: 57% 48px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Flights</h2>
+                    <p>Find perfect offer for yourself.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mg-page mg-available-flights">
+        <div class="container">
+            <div>
+                <table class="table">
+                    <tr>
+                        <td id="tdComp"><label>Name of company:</label><br/>
+                            <input id="searchCompany" type="text" placeholder="Search.."></td>
+                        <td><label>Price:</label><br/>
+                            <input id="priceFrom" type="number"> -
+                            <input id="priceTo" type="number"> $</td>
+                        <td><label>Duration:</label><br/>
+                            <input id="durationH" type="number"> h
+                            <input id="durationM" type="number"> m</td>
+                        <td><button type="button" class="btn btn-primary" (click)="filter()">Filter</button></td>
+                    </tr>
+                </table>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-md-12" *ngFor="let flight of flights">
+                    <div class="mg-avl-room">
+                        <div class="row" id="flightRow">
+                            <div class="col-sm-5"><a href="#"><img class="img-fluid"
+                                        src="/assets/{{flight.destinationFrom}}.jpg" alt=""></a></div>
+                            <div class="col-sm-7">
+                                <h3 class="mg-avl-room-title"><a href="#">
+                                        {{flight.destinationFrom}}
+                                        <i style="font-size: 17px;" class="fas fa-arrow-right"></i>
+                                        {{flight.destinationTo}}
+                                    </a><span [hidden]="!economyClass">${{flight.ticketPrice}} </span>
+                                    <span [hidden]="economyClass">${{flight.businessPrice}} </span></h3>
+                                <p style="font-size: 17px;">
+                                    Date: {{flight.departingDateTime | date: "dd. MMM y."}}
+                                    <br />
+                                    {{flight.destinationFrom}}
+                                    ({{flight.departingDateTime | date: "HH:mm"}}<sup>h</sup>)
+                                    <i style="color: white;" class="fas fa-arrow-right"></i>
+                                    {{flight.destinationTo}} ({{flight.timeOfFlight | date: "HH:mm"}}<sup>h</sup>)
+                                </p>
+                                <div class="row mg-room-fecilities">
+                                    <div class="col-sm-6">
+                                        <ul>
+                                            <li><i class="far fa-clock"></i>
+                                                {{flight.duration | date: "HH'h' mm'min'" }}
+                                            </li>
+                                            <li id="companyName"><i class="fas fa-plane"></i> {{flight.nameOfAirline}}
+                                            </li>
+                                            <li> {{resModel.FlightClass}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <ul>
+                                            <li>
+                                            </li>
+                                            <li>
+                                            </li>
+                                            <li>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div><a class="btn btn-dark" href="/flightpreview/{{flight.id}}">View Details<i
+                                        class="fa fa-angle-double-right"></i></a>
+                                <button class="btn btn-main float-right" id="Book_{{flight.id}}" routerLink="/reserveflight/{{flight.id}}"
+                                    [hidden]="multiselect" [disabled]="bookIds[flight.id]">
+                                    Book Now</button>
+                                <button class="btn btn-main float-right" id="{{flight.id}}" [disabled]="bookIds[flight.id]"
+                                    (click)="selectedFlight($event, flight)" [hidden]="!multiselect">Select</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-main float-right" [hidden]="!multiselect" [disabled]="invalidSelect"
+            style="margin-right: 30px; background-color: green;" routerLink="/reserveflight/{{id1}}/{{id2}}">
+            Book now</button>
+    </div>
+
+</header>

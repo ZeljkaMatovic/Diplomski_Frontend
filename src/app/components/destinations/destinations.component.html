@@ -1,0 +1,52 @@
+<header style="margin-left: 20px; margin-top: 10px;">
+    <div *ngIf="user.role == 'arsadmin' then adminBlock"></div>
+    <p>Destinations: 
+        <ng-template #adminBlock>
+            <a style="margin-left: 800px; margin-top: 10px;" data-toggle="modal" data-target="#modifyDestinations" href="">Modify</a>
+        </ng-template>
+    </p>
+    <div *ngFor="let destination of airline.destinations">
+        {{destination.destinationName}}
+    </div>
+
+    <div class="modal fade" id="modifyDestinations" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="alertLogin">Modify address</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="tab-content">
+                        <form class="form">
+                            <div class="form-group row">
+                                <label for="code">Add new destination: </label>
+                                <div class="col-sm-8">
+                                    <input type="text" 
+                                    style="margin-left: 15px;" id="newDestination">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="code">Remove destination: </label>
+                                <div class="col-sm-8">
+                                    <select id="selectDest">
+                                        <option id="removeDestination" value="None">None</option>
+                                        <option id="removeDestination" *ngFor="let destinations of airline.destinations">{{destinations}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btnConfirm" class="btn btn-secondary" data-dismiss="modal" 
+                        style="background-color: green;" (click)="checkDestinations()">
+                            Confirm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

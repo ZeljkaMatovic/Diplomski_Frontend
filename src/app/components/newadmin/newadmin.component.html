@@ -1,0 +1,64 @@
+<div class="well" style="padding-top: 1%;">
+    <form [formGroup]="adminForm" (ngSubmit)="createNewAdmin()">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="success">
+                    <th *ngIf="path=='system'" colspan="2">Create new System Admin</th>
+                    <th *ngIf="path=='airline'" colspan="2">Create new Airline Admin</th>
+                    <th *ngIf="path=='rentacar'" colspan="2">Create new Rent-a-Car Admin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" id="username" formControlName="username" [class.allGood]="adminForm.controls.username.valid" [class.error]="adminForm.controls.username.invalid" /></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" id="email" formControlName="email" [class.allGood]="adminForm.controls.email.valid" [class.error]="adminForm.controls.email.invalid" /></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" id="password" formControlName="password" [class.allGood]="adminForm.controls.password.valid" [class.error]="adminForm.controls.password.invalid"/></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" id="name" formControlName="name"  [class.allGood]="adminForm.controls.name.valid" [class.error]="adminForm.controls.name.invalid"/></td>
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td><input type="text" id="lastname" formControlName="lastname"  [class.allGood]="adminForm.controls.lastname.valid" [class.error]="adminForm.controls.lastname.invalid"/></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" id="city" formControlName="city" [class.allGood]="adminForm.controls.city.valid" [class.error]="adminForm.controls.city.invalid"/></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="number" id="phone" formControlName="phone" [class.allGood]="adminForm.controls.phone.valid" [class.error]="adminForm.controls.phone.invalid"/></td>
+                </tr>
+                <tr *ngIf="path!=='system'">
+                    <td>Admin of which service:</td>
+                    <td *ngIf="path == 'airline'">
+                        <select id="airSelect" formControlName="airSelect">
+                            <option *ngFor="let air of airlines" [value]="air.id">
+                                {{air.nameOfAirline}}
+                            </option>
+                        </select>
+                    </td>
+                    <td *ngIf="path == 'rentacar'">
+                        <select id="rentSelect" formControlName="rentSelect">
+                            <option *ngFor="let rent of rentacars" [value]="rent.id" >
+                                {{rent.nameOfService}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button [disabled]="!adminForm.valid" class="btn btn-success" type="submit" >Create</button></td>
+                </tr>
+            </tbody>        
+        </table>
+    </form>
+    
+</div>

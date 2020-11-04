@@ -1,0 +1,164 @@
+<header style="margin-left: 20px; margin-top: 10px;">
+    <div *ngIf="user.role == 'arsadmin' then adminBlock"></div>
+    <p class="text1">Where do you want to travel?
+        <ng-template #adminBlock>
+            <a style="margin-left: 800px; margin-top: 10px;" href="">Modify</a>
+        </ng-template>
+    </p>
+    <a class="nav-link" routerLink="../baggage" data-toggle="modal" data-target="#Europe">
+        Flights across Europe and between Europe</a>
+    <a class="nav-link" routerLink="../baggage" data-toggle="modal" data-target="#EuropeUSA">
+        Flights between Europe and USA</a>
+    <a class="nav-link" routerLink="../baggage" data-toggle="modal" data-target="#USA">
+        Flights between USA and other destinations</a>
+</header>
+
+
+
+
+<div class="modal fade" id="Europe" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document" style=" margin-left: 250px;">
+        <div class="modal-content" style="width: 800px; height: 400px;">
+            <div class="modal-header">
+                <h5>Europe</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <form class="form">
+                        <div class="form-group row">
+                            <tbody>
+                                <tr>
+                                <td class="logo" rowspan="2"></td>
+                                <td class="navy" colspan="4">Economy class</td>
+                                <td class="silver">Business class</td>
+                                </tr>
+                                <tr>
+                                <td colspan="2" style="width: 20%;">Light</td>
+                                <td class="blue" style="width: 20%;">Standard</td>
+                                <td class="red" style="width: 20%;">Comfort</td>
+                                <td class="silver" style="width: 20%;">All Inclusive</td>
+                                </tr>
+                                <tr>
+                                <td><img class="icon1" src="../assets/adult_icon.png">
+                                <p>age 12+</p>
+                                <img class="icon2" src="../assets/child_icon.png">
+                                <p>age 2-12</p>
+                                </td>
+                                <td colspan="2"><img src="../assets/baggage_no.svg"> <br>no checked baggage included</td>
+                                <td colspan="2"><img src="../assets/baggage_23kg.svg"> <br>1 bag max</td>
+                                <td><img src="../assets/baggage_32kg.svg"> <img src="../assets/baggage_32kg.svg"><br>2 bags max</td>
+                                </tr>
+                                <tr>
+                                <td><img class="icon3" src="../assets/baby_icon.png"> <br>age below 2</td>
+                                <td colspan="2"><img src="../assets/baggage_stroller.svg"> <br>1 baby stroller fully collapsible</td>
+                                <td colspan="3"><img src="../assets/baggage_23kg.svg"> <img src="../assets/baggage_stroller.svg"><br>1 bag max + 1 baby stroller fully collapsible</td>
+                                </tr>
+                                <tr>
+                                <td>Maximum sum of the baggage dimensions</td>
+                                <td style="font-size: 18px;" colspan="5">length + width + height = 158 cm (max)</td>
+                                </tr>
+                            </tbody>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EuropeUSA" tabindex="0" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <h5>Europe and USA</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <form class="form">
+                        <div class="form-group row">
+                            <tbody>
+                                <tr>
+                                <td class="logo"></td>
+                                <td style="width: 30%;" class="navy">Economy class</td>
+                                <td style="width: 30%;" class="silver">Business class</td>
+                                </tr>
+                                <tr>
+                                <td><img class="icon1" src="../assets/adult_icon.png">
+                                <p>age 12+</p>
+                                <img class="icon2" src="../assets/child_icon.png">
+                                <p>age 2-12</p>
+                                </td>
+                                <td><img src="../assets/baggage_23kg.svg"> <img src="../assets/baggage_23kg.svg"> <br>2 bags max</td>
+                                <td><img src="../assets/baggage_32kg.svg"> <img src="../assets/baggage_32kg.svg"> <br>2 bags max</td>
+                                </tr>
+                                <tr>
+                                <td><img class="icon3" src="../assets/baby_icon.png">
+                                <p>age below 2</p>
+                                </td>
+                                <td colspan="2"><img src="../assets/baggage_23kg.svg"> <img src="../assets/baggage_stroller.svg"> <br>1 bag max + 1 baby stroller fully collapsible</td>
+                                </tr>
+                                <tr>
+                                <td>Maximum sum of the baggage dimensions</td>
+                                <td style="font-size: 18px;" colspan="2">length + width + height = 158 cm (max)</td>
+                                </tr>
+                                </tbody>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="USA" tabindex="1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>USA and other destinations</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <form class="form">
+                        <div class="form-group row">
+                            <tbody>
+                                <tr>
+                                <td class="logo"></td>
+                                <td style="width: 30%;" class="navy">Economy class</td>
+                                <td style="width: 30%;" class="silver">Business class</td>
+                                </tr>
+                                <tr>
+                                <td><img class="icon1" src="../assets/adult_icon.png">
+                                <p>age 12+</p>
+                                <img class="icon2" src="../assets/child_icon.png">
+                                <p>age 2-12</p>
+                                </td>
+                                <td><img src="../assets/baggage_23kg.svg"><br>1 bag max</td>
+                                <td><img src="../assets/baggage_32kg.svg"> <img src="../assets/baggage_32kg.svg"> <br>2 bags max</td>
+                                </tr>
+                                <tr>
+                                <td><img class="icon3" src="../assets/baby_icon.png">
+                                <p>age below 2</p>
+                                </td>
+                                <td colspan="2"><img src="../assets/baggage_23kg.svg"> <img src="../assets/baggage_stroller.svg"> <br>1 bag max + 1 baby stroller fully collapsible</td>
+                                </tr>
+                                <tr>
+                                <td>Maximum sum of the baggage dimensions</td>
+                                <td style="font-size: 18px;" colspan="2">length + width + height = 158 cm (max)</td>
+                                </tr>
+                                </tbody>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

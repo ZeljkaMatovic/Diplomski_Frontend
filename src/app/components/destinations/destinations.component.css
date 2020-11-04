@@ -1,0 +1,11 @@
+#modifyDestinations {
+    color: black;
+}
+
+#modifyDestinations label {
+    margin-left: 15px;
+}
+
+#modifyDestinations input {
+    border-radius: 10px;
+}

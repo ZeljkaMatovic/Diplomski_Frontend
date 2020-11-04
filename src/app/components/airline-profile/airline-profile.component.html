@@ -1,0 +1,65 @@
+<header class="airlineHeader">
+    <div id="templateo_container">
+
+        <div id="templatemo_menu_banner_panel" style="background-image: url('/assets/{{airlineFound.image}}')">
+
+            <div id="templatemo_menu_wrapper">
+                <div id="templatemo_menu">
+                    <ul>
+                        <li><a id="addressBtn" routerLink="../address" class="current">Adress</a></li>
+                        <li><a id="destBtn" routerLink="../destinations">Destinations</a></li>
+                        <!-- <li><a routerLink="../flights">Flights</a></li> -->
+                        <li><a routerLink="../ticketlink">Tickets</a></li>
+                        <li><a routerLink="../seatlink">Seats</a></li>
+                        <li class="last"><a routerLink="../baggage">Baggage</a></li>
+                    </ul>
+                </div> <!-- end of menu -->
+            </div> <!-- end of menu wrapper -->
+
+            <div id="templatemo_banner" style="background-image: url(/src/assets/belgrade.jpg);">
+
+                <div class="header_02">{{airlineFound.nameOfAirline}}
+                    <br>
+                    Average rate: {{averageRate}}
+                    <div *ngIf="userType == 'arsa'">
+                        <br/><button class="btn btn-primary" data-toggle="modal" data-target="#modifyAirline">Edit information</button>
+                    </div>
+                </div>
+
+            </div> <!-- end of banner -->
+
+            <div class="cleaner">&nbsp;</div>
+        </div> <!-- end of menu & banner panel -->
+
+        <div id="templatemo_content_wrapper">
+            <div *ngIf="pathString=='address'; then addressBlock"></div>
+            <div *ngIf="pathString=='destinations'; then destinationsBlock"></div>
+            <!-- <div *ngIf="pathString=='flights'; then flightsBlock"></div> -->
+            <div *ngIf="pathString=='ticketlink'; then ticketsBlock"></div>
+            <div *ngIf="pathString=='seatlink'; then seatsBlock"></div>
+            <div *ngIf="pathString=='baggage'; then baggageBlock"></div>
+            <ng-template #addressBlock>
+                <app-address></app-address>
+            </ng-template>
+            <ng-template #destinationsBlock>
+                <app-destinations></app-destinations>
+            </ng-template>
+            <!-- <ng-template #flightsBlock>
+                <app-flights></app-flights>
+            </ng-template> -->
+            <ng-template #ticketsBlock>
+                <app-ticket-link></app-ticket-link>
+            </ng-template>
+            <ng-template #seatsBlock>
+                <app-seats-config></app-seats-config>
+            </ng-template>
+            <ng-template #baggageBlock>
+                <app-baggage></app-baggage>
+            </ng-template>
+
+        </div> <!-- end of content wrapper -->
+
+    </div> <!-- end of container -->
+</header>
+
+<app-edit-airline *ngIf="userType=='arsa'" [airline]="airlineFound"></app-edit-airline>

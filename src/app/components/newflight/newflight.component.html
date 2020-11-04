@@ -1,0 +1,82 @@
+<div class="well" style="padding-top: 1%;">
+    <form [formGroup]="flightForm" (ngSubmit)="createNewFlight()">
+        <table class="table table-bordered">
+            <tbody>
+                <!-- <thead> -->
+                    <tr class="success">
+                        <th colspan="2">Create new flight</th>
+                    </tr>
+                <!-- </thead> -->
+                <tr>
+                    <td>Destination from:</td>
+                    <td>
+                        <select id="destFromSelect" formControlName="destFromSelect">
+                            <option *ngFor="let destination of airlineFound.destinations">
+                                {{destination.destinationName}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Destination to:</td>
+                    <td>
+                        <select id="destToSelect" formControlName="destToSelect">
+                            <option *ngFor="let destination of airlineFound.destinations">
+                                {{destination.destinationName}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Departure date:</td>
+                    <td><input type="date" id="departure" formControlName="departure"
+                            [class.allGood]="flightForm.controls.departure.valid"
+                            [class.error]="flightForm.controls.departure.invalid" /></td>
+                </tr>
+                <tr>
+                    <td>Landing date:</td>
+                    <td><input type="date" id="landing" formControlName="landing"
+                            [class.allGood]="flightForm.controls.landing.valid"
+                            [class.error]="flightForm.controls.landing.invalid" /></td>
+                </tr>
+                <tr>
+                    <td>Duration:</td>
+                    <td><input type="time" id="duration" formControlName="duration"
+                            [class.allGood]="flightForm.controls.duration.valid"
+                            [class.error]="flightForm.controls.duration.invalid" /></td>
+                </tr>
+                <tr>
+                    <td>Length:</td>
+                    <td><input type="time" id="length" formControlName="length"
+                            [class.allGood]="flightForm.controls.length.valid"
+                            [class.error]="flightForm.controls.length.invalid" /></td>
+                </tr>
+                <tr>
+                    <td>Number of changeover:</td>
+                    <td><input type="number" id="numberC" formControlName="numberC"
+                            [class.allGood]="flightForm.controls.numberC.valid"
+                            [class.error]="flightForm.controls.numberC.invalid" /></td>
+                </tr>
+                <tr>
+                    <td>Changeover locations:</td>
+                    <select id="changeoverSelect" formControlName="changeoverSelect">
+                        <option *ngFor="let destination of airlineFound.destinations">
+                            {{destination.destinationName}}
+                        </option>
+                    </select>
+                </tr>
+                <tr>
+                    <td>Ticket price:</td>
+                    <td><input type="number" id="price" formControlName="price"
+                            [class.allGood]="flightForm.controls.price.valid"
+                            [class.error]="flightForm.controls.price.invalid" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button [disabled]="!flightForm.valid" class="btn btn-success"
+                            type="submit">Create</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+</div>

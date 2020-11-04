@@ -1,0 +1,41 @@
+.divChart {
+    display: block;
+    width: 850px;
+    height: 650px;
+    background-color: rgb(206, 200, 200);
+    margin-left: 380px;
+    margin-top: 60px;
+    border-radius: 10px;
+}
+
+.inputDatas {
+    margin-top: -450px;
+    margin-left: 20px;
+    background-color: rgb(192, 186, 186);
+    width: 300px;
+    border-radius: 10px;
+}
+
+.inputDatas div,
+#chartType {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+label {
+    margin-left: 5px;
+}
+
+#chartType {
+    width: 270px;
+}
+
+input {
+    /* margin-left: 10px; */
+    width: 270px;
+}
+
+button {
+    margin-bottom: 10px;
+    margin-left: 35%;
+}

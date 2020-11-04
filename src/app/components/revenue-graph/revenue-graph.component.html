@@ -1,0 +1,35 @@
+<div class="divChart">
+    <canvas id="myChart" width="850" height="650" [hidden]="!daily"></canvas>
+    <canvas id="myChart2" width="850" height="650" [hidden]="!weekly"></canvas>
+    <canvas id="myChart3" width="850" height="650" [hidden]="!permonth"></canvas>
+</div>
+
+<div class="inputDatas">
+    <select id="chartType" (click)="checkSelect()" class="form-control">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="permonth">Per month</option>
+    </select>
+    <div [hidden]="!daily">
+        <label>Choose day: </label>
+        <input type='date' id="dayTxt" class="form-control"/>
+    </div>
+    <div [hidden]="!weekly">
+        <label>Choose week: </label>
+        <input type='week' id="weekTxt" class="form-control"/>
+    </div>
+    <div [hidden]="!permonth">
+        <label>Choose month: </label>
+        <input type='month' id="monthTxt" class="form-control"/>
+    </div>
+
+    <div [hidden]="!daily">
+        <button type="submit" class="btn btn-success" (click)="submitInput()">Submit</button>
+    </div>
+    <div [hidden]="!weekly"> 
+        <button type="submit" class="btn btn-success" (click)="submitInput2()">Submit</button>
+    </div>
+    <div [hidden]="!permonth">
+        <button type="submit" class="btn btn-success" (click)="submitInput3()">Submit</button>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+
+.error {
+    border-color: red;
+}
+
+.allGood {
+    border-color: green;
+}
+
+
+.table {
+    margin: 25px;
+    margin-left: 0px;
+    width: unset;
+    background-color: rgb(120, 17, 146);
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+div.search{
+  padding-left: 35%;
+  display: inline-block;
+}
+
+div.new {
+  margin-top: 10px;
+  padding-left: 47%;
+  display: inline-block;
+}
+
+div.search span.inputel {
+  padding-left: 10px;
+}
+
+
+
+th {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    height: 70px;
+    font-size: 25px;
+    color: tan;
+}
+
+div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+  div.scrollmenu .part {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  div.scrollmenu .part:hover {
+    background-color: #777;
+  }
